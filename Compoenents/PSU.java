@@ -1,11 +1,12 @@
-public class UPS extends Component{
+package Compoenents;
+public class PSU extends Component{
 
     private int power;
     private String brand;
     private boolean hasRGB;
     private int powerConsumption;
     private String description;
-    public UPS(double price, String brand, boolean hasRGB, int powerConsumption, String description, int power) {
+    public PSU(double price, String brand, boolean hasRGB, int powerConsumption, String description, int power) {
         super(price, brand, hasRGB, powerConsumption, description);
         this.power = power;
     }
@@ -14,6 +15,6 @@ public class UPS extends Component{
     }
     
     public String toString() {
-        return "UPS: " + brand + " " + power + "W";
+        return "PSU: " + brand + " " + power + "W";
     }
 }

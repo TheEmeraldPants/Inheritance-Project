@@ -1,3 +1,4 @@
+package Compoenents;
 public class RAM extends Component {
     private int DDRVersion;
     private int capacity;

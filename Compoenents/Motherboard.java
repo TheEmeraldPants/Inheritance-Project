@@ -1,3 +1,4 @@
+package Compoenents;
 public class Motherboard extends Component {
     private String size;
     private int RAMslots;

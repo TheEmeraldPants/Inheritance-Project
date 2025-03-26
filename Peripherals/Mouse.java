@@ -1,3 +1,4 @@
+package Peripherals;
 public class Mouse extends Peripheral {
     protected int DPI; 
     protected int extraButtons;

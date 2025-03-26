@@ -1,3 +1,5 @@
+package Compoenents;
+
 public class GPU extends Component{
 
     private int VRAM;

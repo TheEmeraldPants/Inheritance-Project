@@ -1,3 +1,4 @@
+package Compoenents;
 public class Case extends Component {
     private String style;
     private String dimensions;
