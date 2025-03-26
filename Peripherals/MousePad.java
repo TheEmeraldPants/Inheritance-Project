@@ -6,4 +6,12 @@ public class MousePad extends Peripheral {
         super(p, b, rgb, pCon, desc, w, d, i);
         surfaceType = sType;
     }
+
+    public String getSurface() {
+        return surfaceType;
+    }
+
+    public void setSurface(String sType) {
+        surfaceType = sType;
+    }
 }
