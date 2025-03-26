@@ -6,6 +6,7 @@
 // powerConsumption
 // description
 // Cases RGB
+//RamType
 // style 
 // dimensions
 // ports 
@@ -23,6 +24,7 @@
 // canOverclock
 // RAM
 // memory
+//int DDRVersion
 // capacity
 // Storage
 // storage 
