@@ -8,6 +8,7 @@ public class Case extends Component {
         this.style = style;
         this.dimensions = dimensions;
         this.ports = ports;
+        description= "A case is a box that contains and protects the main components of a computer, including the motherboard, central processing unit (CPU), power supply unit (PSU), and storage devices. Cases are available in a variety of sizes and styles to accommodate different types of hardware and personal preferences.";
     }
 
     public String getStyle() {
