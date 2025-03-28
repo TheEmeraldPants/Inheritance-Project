@@ -59,4 +59,32 @@ public class Component {
     public String getDescription(){
         return description;
     }
+
+    public void setDescription(String desc) {
+        description = desc;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double p) {
+        price = p;
+    }
+
+    public boolean getRGB() {
+        return hasRGB;
+    }
+
+    public void setRGB(boolean rgb) {
+        hasRGB = rgb;
+    }
+
+    public int getPowerConsumption() {
+        return powerConsumption;
+    } 
+
+    public void setPowerConsumption(int pCon) {
+        powerConsumption = pCon;
+    }
 }

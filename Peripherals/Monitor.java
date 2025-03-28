@@ -6,6 +6,7 @@ public class Monitor extends Peripheral {
         super(p, b, rgb, pCon, desc, w, d, i);
         resolution = res;
         hasStand = stand;
+        super.setDescription("A monitor is what you use to look at your computer's video output. \n They can have different resolutions, meaning higher or lower pixel quality, and some have stands");
     }
 
     public String getResolution() {
