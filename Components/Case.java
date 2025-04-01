@@ -2,9 +2,9 @@ package Compoenents;
 public class Case extends Component {
     private String style;
     private String dimensions;
-    private String ports;
+    private String[] ports;
 
-    public Case(double price, String brand, boolean hasRGB, int powerConsumption, String description, String style, String dimensions, String ports) {
+    public Case(double price, String brand, boolean hasRGB, int powerConsumption, String description, String style, String dimensions, String[] ports) {
         super(price, brand, hasRGB, powerConsumption, description);
         this.style = style;
         this.dimensions = dimensions;
@@ -20,7 +20,7 @@ public class Case extends Component {
         return dimensions;
     }
 
-    public String getPorts() {
+    public String[] getPorts() {
         return ports;
     }
 }

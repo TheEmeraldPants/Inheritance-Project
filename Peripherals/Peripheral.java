@@ -38,4 +38,9 @@ public class Peripheral extends Component{
         IOtype = i;
     }
 
+    public boolean freePort(Case c) {
+        
+        return false;
+    }
+
 }
