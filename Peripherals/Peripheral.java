@@ -39,6 +39,14 @@ public class Peripheral extends Component{
     }
 
     public boolean freePort(Case c) {
+        String[] ports = c.getPorts();
+        for (String port : ports) {
+            if (IOtype.equals(port)) {
+                port = "x";
+                c.setPorts(ports);
+                return true;
+            }
+        }
         
         return false;
     }

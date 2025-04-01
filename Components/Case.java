@@ -23,4 +23,8 @@ public class Case extends Component {
     public String[] getPorts() {
         return ports;
     }
+
+    public String[] setPorts(String[] ports) {
+        this.ports = ports;
+    }
 }
