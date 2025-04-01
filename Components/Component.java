@@ -47,6 +47,7 @@ public class Component {
     protected boolean hasRGB;
     protected int powerConsumption;
     protected String description;
+    
 
     public Component(double price , String brand , boolean hasRGB , int powerConsumption, String description){
         this.price = price;
