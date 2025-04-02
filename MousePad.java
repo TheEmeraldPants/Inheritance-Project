@@ -1,4 +1,4 @@
-package Peripherals;
+
 public class MousePad extends Peripheral {
     protected String surfaceType;
 

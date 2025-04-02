@@ -1,35 +1,4 @@
-package Compoenents;
-// Each Component is a Class
-// Component
-// price
-// brand
-// hasRGB
-// powerConsumption
-// description
-// Cases RGB
-//RamType
-// style 
-// dimensions
-// ports 
-// Motherboards
-// size 
-// RAMslots
-// cpuType
-// Io 
-// CPUs
-// type 
-// cores 
-// canOverclock
-// GPUs
-// size 
-// canOverclock
-// RAM
-// memory
-//int DDRVersion
-// capacity
-// Storage
-// storage 
-// isSSD
+
 
 
 // PSU

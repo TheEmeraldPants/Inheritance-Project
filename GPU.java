@@ -1,4 +1,4 @@
-package Compoenents;
+
 
 public class GPU extends Component{
 

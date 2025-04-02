@@ -1,9 +1,8 @@
-package Compoenents;
 public class Case extends Component {
     private String style;
     private String dimensions;
     private String[] ports;
-    private Int maxMotherboardSize;
+    private int maxMotherboardSize;
 
     public Case(double price, String brand, boolean hasRGB, int powerConsumption, String description, String style, String dimensions, String[] ports, int maxMotherboardSize) {
         super(price, brand, hasRGB, powerConsumption, description);
@@ -26,7 +25,7 @@ public class Case extends Component {
         return ports;
     }
 
-    public String[] setPorts(String[] ports) {
+    public void setPorts(String[] ports) {
         this.ports = ports;
     }
     

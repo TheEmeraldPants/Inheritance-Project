@@ -1,6 +1,3 @@
-package Peripherals;
-import Compoenents.Component;
-
 public class Peripheral extends Component{
     protected double weight;
     protected double[] dimensions;

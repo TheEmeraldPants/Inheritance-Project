@@ -1,4 +1,4 @@
-package Compoenents;
+
 
 public class CPU extends Component {
     private String type;

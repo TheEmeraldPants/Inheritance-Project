@@ -1,4 +1,5 @@
-package Compoenents;
+
+
 public class UPS extends Component{
 
     private int power;

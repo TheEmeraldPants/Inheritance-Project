@@ -1,4 +1,5 @@
-package Compoenents;
+
+
 public class Storage extends Component{
     
     private int capacity;

@@ -1,4 +1,5 @@
-package Compoenents;
+
+
 public class PSU extends Component{
 
     private int power;
