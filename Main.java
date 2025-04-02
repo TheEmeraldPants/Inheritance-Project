@@ -3,13 +3,25 @@ import java.util.ArrayList;
 public class Main
 {
 public static void main(String[] args) {
-        int money = 1000;
+//         //You are in a computer store
+// The employee asks you if you would like help building a computer run Ask loop to either custom or prebuilt computer
+// If no, then ask for a case and then the motherboard
+// Proceed with all other components that are compatible with the motherboard
+// Suggest a psu and peripherals sum total power draw to find psu and then run peripherals loop
+// Quote final price sum all prices
+
+// If yes then ask what they mainly will use it for
+
+        int cost = 0;
         Scanner scan = new Scanner(System.in);
         System.out.println("You are in a MicroCenter.");
-        System.out.println("You need to make a new computer! You have $1000 to your name, and a dream.");
-        System.out.println("------------------YOU HAVE: $" + money + "------------------");
+        System.out.println("You need to make a new computer!");
 
-        System.out.println("You are in the motherboard isle.");
+        System.out.println("Would you like help building a computer? (yes/no)");
+        String help = scan.nextLine(catch (Exception e) {
+            System.out.println("Invalid input. Please enter 'yes' or 'no'.");
+            help = scan.nextLine();
+        });
 
 }
 
