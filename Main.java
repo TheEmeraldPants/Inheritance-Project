@@ -91,6 +91,8 @@ public int choices(String component, Scanner s) {
                 System.out.println("Type the corresponding number of each choice to act.");
                 int choice = s.nextInt();
                 if (choice > 3 || choice < 0) System.out.println("That is not a valid option.");
+   
+                
                 
         }
 
