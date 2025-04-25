@@ -450,7 +450,7 @@ public boolean selectMotherboard() {
         System.out.println("Select a motherboard (or enter -1 to go back):");
         System.out.println("1. MSI ATX with WiFi - $100");
         System.out.println("2. ASUS Micro ATX without WiFi - $80");
-        System.out.println("3. Gigabyte ATX with RGB - $150");
+        System.out.println("3. Gigabyte ATX with RGB and WiFI - $150");
         System.out.print("Enter your choice: ");
         int choice = scanner.nextInt();
         
