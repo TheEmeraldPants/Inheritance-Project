@@ -153,27 +153,9 @@ public static void main(String[] args) {
         
 }
 
-public int choices(String component, Scanner s) {
-        boolean validChoice = false;
-        while (!validChoice) {
-                System.out.println("Would you like to: ");
-                System.out.println("0: Look at what is on the shelf.");
-                System.out.println("1: Learn more about " + component + ".");
-                System.out.println("2: Ask a MicroCenter employee for advice.");
-                System.out.println("3: Check your wallet.");
 
-                System.out.println("Type the corresponding number of each choice to act.");
-                int choice = s.nextInt();
-                if (choice > 3 || choice < 0) System.out.println("That is not a valid option.");
-   
-                
-                
-        }
 
-        return -1;
-}
-
-//method to suggest prebilt based on use case
+//method to suggest prebuilt based on use case
 public void suggestPrebuilt(int use) {
     // Suggest a prebuilt computer based on the use case
         switch (use) {
