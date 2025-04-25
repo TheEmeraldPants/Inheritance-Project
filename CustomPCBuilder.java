@@ -81,8 +81,9 @@ public void buildCustomPC() {
         System.out.println("\n--- Custom PC Builder ---");
         System.out.println("1. Start Building");
         System.out.println("2. Reset Build");
-        System.out.println("3. Exit");
-        int choice = scanner.nextInt();
+        if (scanner.hasNextInt()) {
+            int choice = scanner.nextInt();
+        
 
         if (choice == 1) {
             int step = 0;
@@ -116,7 +117,13 @@ public void buildCustomPC() {
             System.out.println("1. Yes");
             System.out.println("2. No");
             System.out.println("3. Exit");
-            int upsChoice = scanner.nextInt();
+            String temp = scanner.next();
+            int upsChoice;
+            try {
+                upsChoice = Integer.parseInt(temp);
+            } catch (Exception e) {
+                upsChoice = -2;
+            }
             if (upsChoice == 1) {
                 selectUPS();
             } else if (upsChoice == 2) {
@@ -137,11 +144,11 @@ public void buildCustomPC() {
             }
         } else if (choice == 2) {
             resetBuild();
-        } else if (choice == 3) {
-            building = false;
-        } else {
+        }
+        else {
             System.out.println("Invalid option. Try again.");
         }
+    }
     }
 }
 
