@@ -117,22 +117,16 @@ public class Main {
         }
         if (help.equals("yes") || help.equals("y") || help.equals("yeah") || help.equals("sure")) {
             System.out.println("What is the most intensive task you'll be doing on your computer?");
-        System.out.println("1. Gaming");
-        System.out.println("2. Video Editing");
-        System.out.println("3. 3D Rendering");
-        System.out.println("4. Programming");
-        System.out.println("5. Office Work");
-        boolean work = false;
-        while (!work) {
-            try {
-                int taskChoice = scan.nextInt();
-                suggestPrebuilt(taskChoice, budgetPrebuilt, midrangeBuild, highEndBuild, ultraBuild, fourKBuild, insane4040Build);
-                work = true;
-            } catch (Exception e) {
-            }
+            System.out.println("1. Gaming");
+            System.out.println("2. Video Editing");
+            System.out.println("3. 3D Rendering");
+            System.out.println("4. Programming");
+            System.out.println("5. Office Work");
+            int taskChoice = scan.nextInt();
+            suggestPrebuilt(taskChoice, budgetPrebuilt, midrangeBuild, highEndBuild, ultraBuild, fourKBuild, insane4040Build);
+
         
-    
-        }
+
         
     }
     else {
