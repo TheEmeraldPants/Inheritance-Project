@@ -44,4 +44,13 @@ public class Prebuilt {
     public int getPowerSupplyWattage() {
         return powerSupplyWattage;
     }
+
+    public String toString() {
+        return name + " ($" + price + ")\n" +
+               "Brand: " + brand + "\n" +
+               "RGB: " + (hasRGB ? "Yes" : "No") + "\n" +
+               "Estimated Power Consumption: " + powerConsumption + "W\n" +
+               "Recommended PSU: " + powerSupplyWattage + "W\n" +
+               "Description: " + description;
+    }
 }
