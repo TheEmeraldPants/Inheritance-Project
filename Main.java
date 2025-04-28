@@ -155,7 +155,7 @@ public class Main {
             if (getSuggestions.equals("yes") || getSuggestions.equals("y") || getSuggestions.equals("sure")) {
                new SelectingPeripherals().suggestPeripherals();
             } else {
-                //add peripherals dumbass
+               new SelectingPeripherals().selectPeripherals();
             }
         }
            
