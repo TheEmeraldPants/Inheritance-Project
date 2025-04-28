@@ -56,6 +56,13 @@ public class Component {
     public void setPowerConsumption(int pCon) {
         powerConsumption = pCon;
     }
+
+    public String getBrand() {
+        return brand;
+    }
+    public void setBrand(String b) {
+        brand = b;
+    }
 }
 
 

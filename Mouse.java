@@ -3,10 +3,10 @@ public class Mouse extends Peripheral {
     protected int DPI; 
     protected int extraButtons;
 
-    public Mouse(double p, String b, boolean rgb, int pCon, String desc, double w, double[] d, String i, int dpi, int exBut) {
-        super(p, b, rgb, pCon, desc, w, d, i);
+    public Mouse(double price, String brand, boolean rgb, int pCon, String desc, double weight, double[] dimensions, String ioPort, int dpi, int extraButtons) {
+        super(price, brand, rgb, pCon, desc, weight, dimensions, ioPort);
         DPI = dpi;
-        extraButtons = exBut;
+        this.extraButtons = extraButtons;
         super.setDescription("A mouse is used to move your cursor. \n They have different DPIs, which represents how sensitive they are. Some also have extra mappable buttons.");
     }
 

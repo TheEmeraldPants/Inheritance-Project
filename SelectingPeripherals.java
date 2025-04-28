@@ -1,0 +1,120 @@
+import java.util.Scanner;
+public class SelectingPeripherals {
+    Scanner scanner = new Scanner(System.in);
+    //initialize budget, mid-range, gaming, and high-end peripherals
+    Keyboard budgetKeyboard = new Keyboard(50, "Logitech", false, 5, "A budget keyboard with basic features.", 0.5, new double[]{40, 15, 5}, "USB", "Membrane", 100, false);
+    Keyboard midRangeKeyboard = new Keyboard(100, "Corsair", true, 8, "A mid-range keyboard with customizable RGB lighting.", 0.8, new double[]{45, 20, 5}, "USB", "Mechanical", 80, true);
+    Keyboard gamingKeyboard = new Keyboard(150, "Razer", true, 10, "A high-end gaming keyboard with RGB lighting.", 1.0, new double[]{45, 20, 5}, "USB", "Mechanical", 100, true);
+    Keyboard highEndKeyboard = new Keyboard(200, "SteelSeries", true, 12, "A high-end keyboard with customizable RGB lighting.", 1.2, new double[]{50, 25, 5}, "USB", "Mechanical", 100, true);
+
+    Mouse budgetMouse = new Mouse(30, "Logitech", false, 3, "A budget mouse with basic features.", 0.2, new double[]{10, 5, 4}, "USB", 8000, 0);
+    Mouse midRangeMouse = new Mouse(60, "Corsair", true, 5, "A mid-range mouse with customizable RGB lighting.", 0.3, new double[]{12, 6, 4}, "USB", 16000, 3);
+    Mouse gamingMouse = new Mouse(100, "Razer", true, 7, "A high-end gaming mouse with RGB lighting.", 0.4, new double[]{12, 6, 4}, "USB", 20000, 5);
+    Mouse highEndMouse = new Mouse(150, "SteelSeries", true, 10, "A high-end mouse with customizable RGB lighting.", 0.5, new double[]{12, 6, 4}, "USB", 20000, 7);
+
+    Monitor budgetMonitor = new Monitor(150, "Acer", false, 20, "A budget monitor with basic features.", 3.0, new double[]{50, 30, 5}, "HDMI", "1080p", false);
+    Monitor midRangeMonitor = new Monitor(300, "Dell", true, 30, "A mid-range monitor with customizable RGB lighting.", 4.0, new double[]{55, 35, 5}, "HDMI", "1440p", true);
+    Monitor gamingMonitor = new Monitor(500, "Asus", true, 50, "A high-end gaming monitor with RGB lighting.", 5.0, new double[]{60, 40, 5}, "HDMI", "4K", true);
+    Monitor highEndMonitor = new Monitor(800, "Samsung", true, 70, "A high-end monitor with customizable RGB lighting.", 6.0, new double[]{65, 45, 5}, "HDMI", "8K", true);
+
+    Headset budgetHeadset = new Headset(50, "Logitech", false, 5, "A budget headset with basic features.", 0.5, new double[]{20, 15, 10}, "3.5mm", false, "V Shaped");
+    Headset midRangeHeadset = new Headset(100, "Corsair", true, 8, "A mid-range headset with customizable RGB lighting.", 0.8, new double[]{25, 20, 10}, "USB", false, "Balanced");
+    Headset gamingHeadset = new Headset(150, "Razer", true, 10, "A high-end gaming headset with RGB lighting.", 1.0, new double[]{25, 20, 10}, "USB", true, "Bass Boost");
+    Headset highEndHeadset = new Headset(200, "SteelSeries", true, 12, "A high-end headset with customizable RGB lighting.", 1.2, new double[]{30, 25, 10}, "USB", true, "Studio");
+
+    MousePad budgetMousepad = new MousePad(20, "Logitech", false, 2, "A budget mousepad with basic features.", 0.3, new double[]{30, 25, 0.1}, "USB", "Cloth");
+    MousePad midRangeMousepad = new MousePad(40, "Corsair", true, 4, "A mid-range mousepad with customizable RGB lighting.", 0.5, new double[]{35, 30, 0.1}, "USB", "Hard");
+    MousePad gamingMousepad = new MousePad(60, "Razer", true, 6, "A high-end gaming mousepad with RGB lighting.", 0.7, new double[]{40, 35, 0.1}, "USB", "Full Desk");
+    MousePad highEndMousepad = new MousePad(80, "SteelSeries", true, 8, "A high-end mousepad with customizable RGB lighting.", 0.9, new double[]{45, 40, 0.1}, "USB", "Ergonomic");
+
+    //initialize selected peripherals
+    Keyboard selectedKeyboard;
+    Mouse selectedMouse;
+    Monitor selectedMonitor;
+    Headset selectedHeadset;
+    MousePad selectedMousepad;
+
+    public static void main(String[] args) {
+        new SelectingPeripherals().suggestPeripherals();
+    }
+
+    public void suggestPeripherals() {
+        System.out.println("What kind of peripherals are you looking for?");
+        System.out.println("1. Budget");
+        System.out.println("2. Mid-range");
+        System.out.println("3. Gaming");
+        System.out.println("4. High-end");
+        System.out.print("Please enter your choice (1-4): ");
+        boolean isValid = false;
+        int choice = -1;
+        while (!isValid) {  
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+                if (choice >= 1 && choice <= 4) {
+                    isValid = true;
+                } else {
+                    System.out.print("Invalid choice. Please enter a number between 1 and 4: ");
+                }
+            } else {
+                System.out.print("Invalid input. Please enter a number between 1 and 4: ");
+                scanner.next(); // clear the invalid input
+            }
+        }
+        switch (choice) {
+            case 1:
+                selectedKeyboard = budgetKeyboard;
+                selectedMouse = budgetMouse;
+                selectedMonitor = budgetMonitor;
+                selectedHeadset = budgetHeadset;
+                selectedMousepad = budgetMousepad;
+                break;
+            case 2:
+                selectedKeyboard = midRangeKeyboard;
+                selectedMouse = midRangeMouse;
+                selectedMonitor = midRangeMonitor;
+                selectedHeadset = midRangeHeadset;
+                selectedMousepad = midRangeMousepad;
+                break;
+            case 3:
+                selectedKeyboard = gamingKeyboard;
+                selectedMouse = gamingMouse;
+                selectedMonitor = gamingMonitor;
+                selectedHeadset = gamingHeadset;
+                selectedMousepad = gamingMousepad;
+                break;
+            case 4:
+                selectedKeyboard = highEndKeyboard;
+                selectedMouse = highEndMouse;
+                selectedMonitor = highEndMonitor;
+                selectedHeadset = highEndHeadset;
+                selectedMousepad = highEndMousepad;
+                break;
+            default:
+                System.out.println("Invalid choice. Please try again.");
+        }
+        System.out.println("You have selected the following peripherals:");
+        System.out.println("Keyboard: " + selectedKeyboard.getBrand() + " - $" + selectedKeyboard.getPrice());
+        System.out.println("Mouse: " + selectedMouse.getBrand() + " - $" + selectedMouse.getPrice());
+        System.out.println("Monitor: " + selectedMonitor.getBrand() + " - $" + selectedMonitor.getPrice());
+        System.out.println("Headset: " + selectedHeadset.getBrand() + " - $" + selectedHeadset.getPrice());
+        System.out.println("Mousepad: " + selectedMousepad.getBrand() + " - $" + selectedMousepad.getPrice());
+        System.out.println("Total Power Consumption: " + (selectedKeyboard.getPowerConsumption() + selectedMouse.getPowerConsumption() + selectedMonitor.getPowerConsumption() + selectedHeadset.getPowerConsumption() + selectedMousepad.getPowerConsumption()) + "W");
+        System.out.println("Total Price: " + ("$" + (selectedKeyboard.getPrice() + selectedMouse.getPrice() + selectedMonitor.getPrice() + selectedHeadset.getPrice() + selectedMousepad.getPrice())));
+        System.out.println("Are you satisfied with your selection? (yes/no)");
+        String satisfaction = scanner.next();
+        boolean isSatisfied = false;
+        while (!isSatisfied) {
+        if (satisfaction.equalsIgnoreCase("yes") || satisfaction.equalsIgnoreCase("y") || satisfaction.equalsIgnoreCase("sure") || satisfaction.equalsIgnoreCase("absolutely") || satisfaction.equalsIgnoreCase("definitely") || satisfaction.equalsIgnoreCase("of course")) {
+            System.out.println("Great! Enjoy your new peripherals.");
+            isSatisfied = true;
+        } else if (satisfaction.equalsIgnoreCase("no") || satisfaction.equalsIgnoreCase("n") || satisfaction.equalsIgnoreCase("not really") || satisfaction.equalsIgnoreCase("nope") || satisfaction.equalsIgnoreCase("not at all")) {
+            isSatisfied = true;
+            suggestPeripherals();
+        }
+        else {
+            System.out.println("Invalid response. Please answer with 'yes' or 'no'.");
+            satisfaction = scanner.next();
+        }
+    }
+    }
+}
