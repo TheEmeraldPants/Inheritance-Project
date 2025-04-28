@@ -384,7 +384,6 @@ public class SelectingPeripherals {
             }
         }
         scanner.close();
-        System.out.println("Enjoy your new peripherals!");
         
     }
 
