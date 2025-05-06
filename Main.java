@@ -2,7 +2,6 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
     int totalCost = 0;
     CPU selectedCPU = null;
     Motherboard selectedMotherboard = null;
@@ -128,7 +127,23 @@ public class Main {
             System.out.println("3. 3D Rendering");
             System.out.println("4. Programming");
             System.out.println("5. Office Work");
-            int taskChoice = scan.nextInt();
+            System.out.println("Please enter the number corresponding to your choice (1-5):");
+            boolean isValid = false;
+            int taskChoice = -1;
+            while (!isValid) {
+                if (scan.hasNextInt()) {
+                    taskChoice = scan.nextInt();
+                    if (taskChoice >= 1 && taskChoice <= 5) {
+                    isValid = true;
+                    } else {
+                        System.out.println("Invalid choice. Please enter a number between 1 and 5.");
+                    }
+                }
+                else {
+                    System.out.println("Invalid input. Please enter a number between 1 and 5.");
+                    scan.next(); // Clear the invalid input
+                }
+            }
             suggestPrebuilt(taskChoice, budgetPrebuilt, midrangeBuild, highEndBuild, ultraBuild, fourKBuild, insane4040Build);
 
             
@@ -158,7 +173,7 @@ public class Main {
                new SelectingPeripherals().selectPeripherals();
             }
         }
-           
+        scan.close();
     }
 
     public static void suggestPrebuilt(int taskChoice, Prebuilt... builds) {

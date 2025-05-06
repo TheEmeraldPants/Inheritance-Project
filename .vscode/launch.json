@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CustomPCBuilder",
+            "request": "launch",
+            "mainClass": "CustomPCBuilder",
+            "projectName": "Inheritance-Project_668b1bb4"
+        },
+        {
+            "type": "java",
             "name": "SelectingPeripherals",
             "request": "launch",
             "mainClass": "SelectingPeripherals",

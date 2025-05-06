@@ -81,9 +81,22 @@ public void buildCustomPC() {
         System.out.println("\n--- Custom PC Builder ---");
         System.out.println("1. Start Building");
         System.out.println("2. Reset Build");
-        if (scanner.hasNextInt()) {
-            int choice = scanner.nextInt();
-        
+        boolean isValidInput = false;
+        int choice = -1;
+        while (!isValidInput) {
+            System.out.print("Select an option (1 or 2): ");
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+                if (choice == 1 || choice == 2) {
+                    isValidInput = true;
+                } else {
+                    System.out.println("Invalid option. Please try again.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.next(); // Clear invalid input
+            }
+        }
 
         if (choice == 1) {
             int step = 0;
@@ -149,7 +162,6 @@ public void buildCustomPC() {
             System.out.println("Invalid option. Try again.");
         }
     }
-    }
 }
 
 public void resetBuild() {
@@ -173,7 +185,21 @@ public boolean selectPSU() {
     System.out.println("3: MSI MAG A750GL - $100.00");
     System.out.println("4: Corsair RM850x - $130.00");
     System.out.print("Choose index: ");
-    int choice = scanner.nextInt();
+    boolean isValidInput = false;
+    int choice = -1;
+    while (!isValidInput) {
+        if (scanner.hasNextInt()) {
+            choice = scanner.nextInt();
+            if (choice >= -1 && choice <= 4) {
+                isValidInput = true;
+            } else {
+                System.out.println("Invalid option. Please try again.");
+            }
+        } else {
+            System.out.println("Invalid input. Please enter a number.");
+            scanner.next(); // Clear invalid input
+        }
+    }
     
     switch (choice) {
         case 0:
@@ -210,7 +236,21 @@ public boolean selectRAM() {
     System.out.println("2: G.Skill 16GB DDR5 RGB - $120.00");
     System.out.println("3: Corsair 32GB DDR5 - $240.00");
     System.out.print("Choose index: ");
-    int choice = scanner.nextInt();
+    boolean isValidInput = false;
+    int choice = -1;
+    while (!isValidInput) {
+        if (scanner.hasNextInt()) {
+            choice = scanner.nextInt();
+            if (choice >= -1 && choice <= 3) {
+                isValidInput = true;
+            } else {
+                System.out.println("Invalid option. Please try again.");
+            }
+        } else {
+            System.out.println("Invalid input. Please enter a number.");
+            scanner.next(); // Clear invalid input
+        }
+    }
 
     switch (choice) {
         case 0:
@@ -248,7 +288,21 @@ public boolean selectGPU() {
     System.out.println("5: AMD RX 6900XT - $1000.00");
     System.out.println("6: Intel ARC A750 - $400.00");
     System.out.print("Choose index: ");
-    int choice = scanner.nextInt();
+    boolean isValidInput = false;
+    int choice = -1;
+    while (!isValidInput) {
+        if (scanner.hasNextInt()) {
+            choice = scanner.nextInt();
+            if (choice >= -1 && choice <= 6) {
+                isValidInput = true;
+            } else {
+                System.out.println("Invalid option. Please try again.");
+            }
+        } else {
+            System.out.println("Invalid input. Please enter a number.");
+            scanner.next(); // Clear invalid input
+        }
+    }
     
     switch (choice) {
         case 0:
@@ -287,7 +341,21 @@ public void selectUPS() {
         System.out.println("1. Yes (Cost: $150)");
         System.out.println("2. No (No cost added)");
         System.out.print("Enter your choice (1 for Yes, 2 for No): ");
-        int choice = scanner.nextInt();
+        boolean isValidInput = false;
+        int choice = -1;
+        while (!isValidInput) {
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+                if (choice == 1 || choice == 2) {
+                    isValidInput = true;
+                } else {
+                    System.out.println("Invalid option. Please try again.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.next(); // Clear invalid input
+            }
+        }
         
         switch (choice) {
             case 1:
@@ -319,7 +387,21 @@ public Boolean selectStorage() {
         System.out.println("4. Seagate 2TB HDD - $50.00");
         System.out.println("5. WD 4TB HDD - $120.00");
         System.out.print("Enter the number of your choice: ");
-        int choice = scanner.nextInt();
+        boolean isValidInput = false;
+        int choice = -1;
+        while (!isValidInput) {
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+                if (choice >= 1 && choice <= 5) {
+                    isValidInput = true;
+                } else {
+                    System.out.println("Invalid option. Please try again.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.next(); // Clear invalid input
+            }
+        }
 
         switch (choice) {
             case 1:
@@ -360,7 +442,21 @@ public Boolean selectCase() {
         System.out.println("2. Fractal Design Clean Case - $120.00");
         System.out.println("3. Corsair Premium RGB Case - $180.00");
         System.out.print("Enter the number of your choice: ");
-        int choice = scanner.nextInt();
+        boolean isValidInput = false;
+        int choice = -1;
+        while (!isValidInput) {
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+                if (choice >= 1 && choice <= 3) {
+                    isValidInput = true;
+                } else {
+                    System.out.println("Invalid option. Please try again.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.next(); // Clear invalid input
+            }
+        }
         
         switch (choice) {
             case 1:
@@ -400,7 +496,21 @@ public boolean selectCPU() {
         System.out.println("7: AMD Ryzen 7 High-End AM5 - $550.00");
         System.out.println("8: AMD Ryzen 9 Ultra High-End AM5 - $750.00");
         System.out.print("Choose index: ");
-        int choice = scanner.nextInt();
+        boolean isValidInput = false;
+        int choice = -1;
+        while (!isValidInput) {
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+                if (choice >= -1 && choice <= 8) {
+                    isValidInput = true;
+                } else {
+                    System.out.println("Invalid option. Please try again.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.next(); // Clear invalid input
+            }
+        }
         
         switch (choice) {
             case 0:
@@ -459,7 +569,21 @@ public boolean selectMotherboard() {
         System.out.println("2. ASUS Micro ATX without WiFi - $80");
         System.out.println("3. Gigabyte ATX with RGB and WiFI - $150");
         System.out.print("Enter your choice: ");
-        int choice = scanner.nextInt();
+        boolean isValidInput = false;
+        int choice = -1;
+        while (!isValidInput) {
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+                if (choice >= -1 && choice <= 3) {
+                    isValidInput = true;
+                } else {
+                    System.out.println("Invalid option. Please try again.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.next(); // Clear invalid input
+            }
+        }
         
         switch (choice) {
             case 1:
