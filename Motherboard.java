@@ -19,14 +19,14 @@ public class Motherboard extends Component {
         
     }
 
-    public Boolean fitsCase(Case cas) {
-        // Check if the motherboard size is compatible with the case size
-        if (cas.getMaxMotherboardSize() >= this.size) {
-            return true; // Fits in the case
-        } else {
-            return false; // Does not fit in the case
-        }
-    }
+    // public Boolean fitsCase(Case cas) {
+    //     // Check if the motherboard size is compatible with the case size
+    //     if (cas.getMaxMotherboardSize() >= this.size) {
+    //         return true; // Fits in the case
+    //     } else {
+    //         return false; // Does not fit in the case
+    //     }
+    // }
     
     public int getDDRVersionSupported() {
         return CPUArchetecture;

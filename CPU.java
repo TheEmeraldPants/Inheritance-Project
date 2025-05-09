@@ -24,7 +24,7 @@ public class CPU extends Component {
         return canOverclock;
     }
 
-    public boolean isCompatible(Motherboard motherboard) {
-        return motherboard.getCpuType().equals(type);
-    }
-}
+//     public boolean isCompatible(Motherboard motherboard) {
+//         return motherboard.getCpuType().equals(type);
+//     }
+// }

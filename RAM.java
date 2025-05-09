@@ -28,8 +28,8 @@ public class RAM extends Component {
     public String getType() {
         return type;
     }
-    public Boolean isCompatible(Motherboard motherboard) {
-        return motherboard.getDDRVersionSupported() == DDRVersion;
-    }
+    //public Boolean isCompatible(Motherboard motherboard) {
+        //return motherboard.getDDRVersionSupported() == DDRVersion;
+    //}
     
 }

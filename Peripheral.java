@@ -8,7 +8,7 @@ public class Peripheral extends Component{
         weight = w;
         dimensions = d;
         IOtype = i;
-        super.setDescription("A peripheral is typically something you plug into your computer to interact with it.");
+        //Description="A peripheral is typically something you plug into your computer to interact with it.";
     }
 
     public double getWeight() {

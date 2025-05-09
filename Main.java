@@ -2,6 +2,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
+        Scanner scanner = new Scanner(System.in);
     int totalCost = 0;
     CPU selectedCPU = null;
     Motherboard selectedMotherboard = null;
@@ -11,12 +12,6 @@ public class Main {
     Case selectedCase = null;
     PSU selectedPSU = null;
     UPS selectedUPS = null;
-    Monitor selectedMonitor = null;
-    MousePad selectedMousePad = null;
-    Mouse selectedMouse = null;
-    Headset selectedHeadset = null;
-    Keyboard selectedKeyboard = null;
-
 
     Prebuilt budgetPrebuilt = new Prebuilt(
             "Budget Prebuilt",
@@ -122,58 +117,28 @@ public class Main {
         }
         if (help.equals("yes") || help.equals("y") || help.equals("yeah") || help.equals("sure")) {
             System.out.println("What is the most intensive task you'll be doing on your computer?");
-            System.out.println("1. Gaming");
-            System.out.println("2. Video Editing");
-            System.out.println("3. 3D Rendering");
-            System.out.println("4. Programming");
-            System.out.println("5. Office Work");
-            System.out.println("Please enter the number corresponding to your choice (1-5):");
-            boolean isValid = false;
-            int taskChoice = -1;
-            while (!isValid) {
-                if (scan.hasNextInt()) {
-                    taskChoice = scan.nextInt();
-                    if (taskChoice >= 1 && taskChoice <= 5) {
-                    isValid = true;
-                    } else {
-                        System.out.println("Invalid choice. Please enter a number between 1 and 5.");
-                    }
-                }
-                else {
-                    System.out.println("Invalid input. Please enter a number between 1 and 5.");
-                    scan.next(); // Clear the invalid input
-                }
+        System.out.println("1. Gaming");
+        System.out.println("2. Video Editing");
+        System.out.println("3. 3D Rendering");
+        System.out.println("4. Programming");
+        System.out.println("5. Office Work");
+        boolean work = false;
+        while (!work) {
+            try {
+                int taskChoice = scan.nextInt();
+                suggestPrebuilt(taskChoice, budgetPrebuilt, midrangeBuild, highEndBuild, ultraBuild, fourKBuild, insane4040Build);
+                work = true;
+            } catch (Exception e) {
             }
-            suggestPrebuilt(taskChoice, budgetPrebuilt, midrangeBuild, highEndBuild, ultraBuild, fourKBuild, insane4040Build);
-
-            
         
     
         }
+        
+    }
     else {
+        
         new CustomPCBuilder().buildCustomPC();
         }
-
-        System.out.println("Would you like to add peripherals? (yes/no)");
-        String addPeripherals = scan.next().toLowerCase();
-        while (!addPeripherals.equals("yes") && !addPeripherals.equals("no") && !addPeripherals.equals("y") && !addPeripherals.equals("n") && !addPeripherals.equals("sure") && !addPeripherals.equals("nah") && !addPeripherals.equals("no thanks")) {
-            System.out.println("Please answer with 'yes' or 'no'.");
-            addPeripherals = scan.next().toLowerCase();
-        }
-        if (addPeripherals.equals("yes") || addPeripherals.equals("y") || addPeripherals.equals("sure")) {
-            System.out.println("Would you like to get suggestions for peripherals? (yes/no)");
-            String getSuggestions = scan.next().toLowerCase();
-            while (!getSuggestions.equals("yes") && !getSuggestions.equals("no") && !getSuggestions.equals("y") && !getSuggestions.equals("n") && !getSuggestions.equals("sure") && !getSuggestions.equals("nah") && !getSuggestions.equals("no thanks")) {
-                System.out.println("Please answer with 'yes' or 'no'.");
-                getSuggestions = scan.next().toLowerCase();
-            }
-            if (getSuggestions.equals("yes") || getSuggestions.equals("y") || getSuggestions.equals("sure")) {
-               new SelectingPeripherals().suggestPeripherals();
-            } else {
-               new SelectingPeripherals().selectPeripherals();
-            }
-        }
-        scan.close();
     }
 
     public static void suggestPrebuilt(int taskChoice, Prebuilt... builds) {
@@ -242,9 +207,8 @@ public void suggestPrebuilt(int use) {
                 System.out.println("Suggested Prebuilt: Engineering PC with high-performance CPU and RAM.");
                 break;
                 case 10:
-                System.out.println("Suggested Prebuilt: General Use PC with inexpensive components.");
+                System.out.println("Suggested Prebuilt: General Use PC with inexpesive components.");
                 break;
     }
 }
-
 }

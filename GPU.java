@@ -12,6 +12,7 @@ public class GPU extends Component{
     private String description;
     public GPU(double price, String brand, boolean hasRGB, int powerConsumption, String description, int VRAM, int cores, int speed, String type) {
         super(price, brand, hasRGB, powerConsumption, description);
+
         this.VRAM = VRAM;
         this.cores = cores;
         this.speed = speed;
@@ -29,7 +30,7 @@ public class GPU extends Component{
     public String getType() {
         return type;
     }
-    public Boolean isCompatible(Motherboard motherboard) {
-        return motherboard.getDDRVersionSupported() == VRAM;
-    }
+    // public Boolean isCompatible(Motherboard motherboard) {
+    //     return motherboard.getDDRVersionSupported() == VRAM;
+    // }
 }
