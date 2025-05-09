@@ -7,7 +7,7 @@ public class Mouse extends Peripheral {
         super(price, brand, rgb, pCon, desc, weight, dimensions, ioPort);
         DPI = dpi;
         this.extraButtons = extraButtons;
-        super.setDescription("A mouse is used to move your cursor. \n They have different DPIs, which represents how sensitive they are. Some also have extra mappable buttons.");
+      //  super.setDescription("A mouse is used to move your cursor. \n They have different DPIs, which represents how sensitive they are. Some also have extra mappable buttons.");
     }
 
     public int getDPI() {

@@ -6,7 +6,7 @@ public class Headset extends Peripheral {
         super(p, b, rgb, pCon, desc, w, d, i);
         noiseCancelling = nCan;
         soundProfile = sProf;
-        super.setDescription("A headset is used to listen to computer sounds privately, or to block outside noises. \n Headsets can have different sound profiles, meaning they have more bass, mids, or top-end.");
+        //super.setDescription("A headset is used to listen to computer sounds privately, or to block outside noises. \n Headsets can have different sound profiles, meaning they have more bass, mids, or top-end.");
     }
 
     public boolean getNoiseCancelling() {
