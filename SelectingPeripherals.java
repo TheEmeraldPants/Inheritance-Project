@@ -44,12 +44,12 @@ public class SelectingPeripherals {
 
 
     public void suggestPeripherals() {
-        System.out.println("What kind of peripherals are you looking for?");
+        System.out.println("\nWhat kind of peripherals are you looking for?");
         System.out.println("1. Budget");
         System.out.println("2. Mid-range");
         System.out.println("3. Gaming");
         System.out.println("4. High-end");
-        System.out.print("Please enter your choice (1-4): ");
+        System.out.print("\nPlease enter your choice (1-4): ");
         boolean isValid = false;
         int choice = -1;
         while (!isValid) {  
@@ -72,6 +72,8 @@ public class SelectingPeripherals {
                 selectedMonitor = budgetMonitor;
                 selectedHeadset = budgetHeadset;
                 selectedMousepad = budgetMousepad;
+                totalPowerConsumption = budgetKeyboard.getPowerConsumption() + budgetMouse.getPowerConsumption() + budgetMonitor.getPowerConsumption() + budgetHeadset.getPowerConsumption() + budgetMousepad.getPowerConsumption();
+                totalPrice = budgetKeyboard.getPrice() + budgetMouse.getPrice() + budgetMonitor.getPrice() + budgetHeadset.getPrice() + budgetMousepad.getPrice();
                 break;
             case 2:
                 selectedKeyboard = midRangeKeyboard;
@@ -79,6 +81,8 @@ public class SelectingPeripherals {
                 selectedMonitor = midRangeMonitor;
                 selectedHeadset = midRangeHeadset;
                 selectedMousepad = midRangeMousepad;
+                totalPowerConsumption = midRangeKeyboard.getPowerConsumption() + midRangeMouse.getPowerConsumption() + midRangeMonitor.getPowerConsumption() + midRangeHeadset.getPowerConsumption() + midRangeMousepad.getPowerConsumption();
+                totalPrice = midRangeKeyboard.getPrice() + midRangeMouse.getPrice() + midRangeMonitor.getPrice() + midRangeHeadset.getPrice() + midRangeMousepad.getPrice();
                 break;
             case 3:
                 selectedKeyboard = gamingKeyboard;
@@ -86,6 +90,8 @@ public class SelectingPeripherals {
                 selectedMonitor = gamingMonitor;
                 selectedHeadset = gamingHeadset;
                 selectedMousepad = gamingMousepad;
+                totalPowerConsumption = gamingKeyboard.getPowerConsumption() + gamingMouse.getPowerConsumption() + gamingMonitor.getPowerConsumption() + gamingHeadset.getPowerConsumption() + gamingMousepad.getPowerConsumption();
+                totalPrice = gamingKeyboard.getPrice() + gamingMouse.getPrice() + gamingMonitor.getPrice() + gamingHeadset.getPrice() + gamingMousepad.getPrice();
                 break;
             case 4:
                 selectedKeyboard = highEndKeyboard;
@@ -93,24 +99,26 @@ public class SelectingPeripherals {
                 selectedMonitor = highEndMonitor;
                 selectedHeadset = highEndHeadset;
                 selectedMousepad = highEndMousepad;
+                totalPowerConsumption = highEndKeyboard.getPowerConsumption() + highEndMouse.getPowerConsumption() + highEndMonitor.getPowerConsumption() + highEndHeadset.getPowerConsumption() + highEndMousepad.getPowerConsumption();
+                totalPrice = highEndKeyboard.getPrice() + highEndMouse.getPrice() + highEndMonitor.getPrice() + highEndHeadset.getPrice() + highEndMousepad.getPrice();
                 break;
             default:
                 System.out.println("Invalid choice. Please try again.");
         }
-        System.out.println("You have selected the following peripherals:");
-        System.out.println("Keyboard: " + selectedKeyboard.getBrand() + " - $" + selectedKeyboard.getPrice());
-        System.out.println("Mouse: " + selectedMouse.getBrand() + " - $" + selectedMouse.getPrice());
-        System.out.println("Monitor: " + selectedMonitor.getBrand() + " - $" + selectedMonitor.getPrice());
-        System.out.println("Headset: " + selectedHeadset.getBrand() + " - $" + selectedHeadset.getPrice());
-        System.out.println("Mousepad: " + selectedMousepad.getBrand() + " - $" + selectedMousepad.getPrice());
-        System.out.println("Total Power Consumption: " + (selectedKeyboard.getPowerConsumption() + selectedMouse.getPowerConsumption() + selectedMonitor.getPowerConsumption() + selectedHeadset.getPowerConsumption() + selectedMousepad.getPowerConsumption()) + "W");
-        System.out.println("Total Price: " + ("$" + (selectedKeyboard.getPrice() + selectedMouse.getPrice() + selectedMonitor.getPrice() + selectedHeadset.getPrice() + selectedMousepad.getPrice())));
-        System.out.println("Are you satisfied with your selection? (yes/no)");
+        System.out.println("\n You have selected the following peripherals:");
+        System.out.println("\n" + selectedKeyboard.toString());
+        System.out.println("\n" + selectedMouse.toString());
+        System.out.println("\n" + selectedMonitor.toString());
+        System.out.println("\n" + selectedHeadset.toString());
+        System.out.println("\n" + selectedMousepad.toString());
+        System.out.println("\n" + "Total Power Consumption: " + totalPowerConsumption + "W");
+        System.out.println("Total Price: $" + String.format("%.2f", totalPrice));
+        System.out.println("\nAre you satisfied with your selection? (yes/no)");
         String satisfaction = scanner.next();
         boolean isSatisfied = false;
         while (!isSatisfied) {
         if (satisfaction.equalsIgnoreCase("yes") || satisfaction.equalsIgnoreCase("y") || satisfaction.equalsIgnoreCase("sure") || satisfaction.equalsIgnoreCase("absolutely") || satisfaction.equalsIgnoreCase("definitely") || satisfaction.equalsIgnoreCase("of course")) {
-            System.out.println("Great! Enjoy your new peripherals.");
+            System.out.println("Great! Enjoy your new setup.");
             isSatisfied = true;
         } else if (satisfaction.equalsIgnoreCase("no") || satisfaction.equalsIgnoreCase("n") || satisfaction.equalsIgnoreCase("not really") || satisfaction.equalsIgnoreCase("nope") || satisfaction.equalsIgnoreCase("not at all")) {
             isSatisfied = true;
@@ -129,13 +137,13 @@ public class SelectingPeripherals {
         while (selecting) {
             boolean validInput = false;
             while (!validInput) {
-                System.out.println("Please select a peripheral:");
+                System.out.println("\nPlease select a peripheral:");
                 System.out.println("1. Keyboard");
                 System.out.println("2. Mouse");
                 System.out.println("3. Monitor");
                 System.out.println("4. Headset");
                 System.out.println("5. Mousepad");
-                System.out.print("Please enter your choice (1-5): ");
+                System.out.print("\nPlease enter your choice (1-5): ");
                 if (scanner.hasNextInt()) {
                     int choice = scanner.nextInt();
                     if (choice >= 1 && choice <= 5) {
@@ -144,12 +152,12 @@ public class SelectingPeripherals {
                             case 1:
                                 boolean validKeyboard = false;
                                 while (!validKeyboard) {
-                                    System.out.println("Please select a keyboard:");
-                                    System.out.println("1: " + budgetKeyboard.getBrand() + " Keyboard- $" + budgetKeyboard.getPrice());
-                                    System.out.println("2: " + midRangeKeyboard.getBrand() + " Keyboard- $" + midRangeKeyboard.getPrice());
-                                    System.out.println("3: " + gamingKeyboard.getBrand() + " Keyboard- $" + gamingKeyboard.getPrice());
-                                    System.out.println("4: " + highEndKeyboard.getBrand() + " Keyboard- $" + highEndKeyboard.getPrice());
-                                    System.out.print("Please enter your choice (1-4): ");
+                                    System.out.println("\nPlease select a keyboard:");
+                                    System.out.println("1: " + budgetKeyboard.getBrand() + " " + budgetKeyboard.getName() + " - $" + budgetKeyboard.getPrice());
+                                    System.out.println("2: " + midRangeKeyboard.getBrand() + " " + midRangeKeyboard.getName() + " - $" + midRangeKeyboard.getPrice());
+                                    System.out.println("3: " + gamingKeyboard.getBrand() + " " + gamingKeyboard.getName() + " - $" + gamingKeyboard.getPrice());
+                                    System.out.println("4: " + highEndKeyboard.getBrand() + " " + highEndKeyboard.getName() + " - $" + highEndKeyboard.getPrice());
+                                    System.out.print("\nPlease enter your choice (1-4): ");
                                     if (scanner.hasNextInt()) {
                                         int keyboardChoice = scanner.nextInt();
                                         if (keyboardChoice >= 1 && keyboardChoice <= 4) {
@@ -157,16 +165,49 @@ public class SelectingPeripherals {
                                             switch (keyboardChoice) {
                                                 case 1:
                                                     selectedKeyboard = budgetKeyboard;
+                                                    System.out.println("You have selected: ");
+                                                    System.out.println("\n" + budgetKeyboard.toString());
+                                                    totalPowerConsumption += budgetKeyboard.getPowerConsumption();
+                                                    totalPrice += budgetKeyboard.getPrice();
                                                     break;
                                                 case 2:
                                                     selectedKeyboard = midRangeKeyboard;
+                                                    System.out.println("You have selected: ");
+                                                    System.out.println("\n" + midRangeKeyboard.toString());
+                                                    totalPowerConsumption += midRangeKeyboard.getPowerConsumption();
+                                                    totalPrice += midRangeKeyboard.getPrice();
                                                     break;
                                                 case 3:
                                                     selectedKeyboard = gamingKeyboard;
+                                                    System.out.println("You have selected: ");
+                                                    System.out.println("\n" + gamingKeyboard.toString());
+                                                    totalPowerConsumption += gamingKeyboard.getPowerConsumption();
+                                                    totalPrice += gamingKeyboard.getPrice();
                                                     break;
                                                 case 4:
                                                     selectedKeyboard = highEndKeyboard;
+                                                    System.out.println("You have selected: ");
+                                                    System.out.println("\n" + highEndKeyboard.toString());
+                                                    totalPowerConsumption += highEndKeyboard.getPowerConsumption();
+                                                    totalPrice += highEndKeyboard.getPrice();
                                                     break;
+                                            }
+                                            System.out.println("Are you satisfied with your selection? (yes/no)");
+                                            String satisfaction = scanner.next();
+                                            boolean isSatisfied = false;
+                                            while (!isSatisfied) {
+                                                if (satisfaction.equalsIgnoreCase("yes") || satisfaction.equalsIgnoreCase("y") || satisfaction.equalsIgnoreCase("sure") || satisfaction.equalsIgnoreCase("absolutely") || satisfaction.equalsIgnoreCase("definitely") || satisfaction.equalsIgnoreCase("of course")) {
+                                                    isSatisfied = true;
+                                                } else if (satisfaction.equalsIgnoreCase("no") || satisfaction.equalsIgnoreCase("n") || satisfaction.equalsIgnoreCase("not really") || satisfaction.equalsIgnoreCase("nope") || satisfaction.equalsIgnoreCase("not at all")) {
+                                                    isSatisfied = true;
+                                                    validKeyboard = false;
+                                                    totalPowerConsumption -= selectedKeyboard.getPowerConsumption();
+                                                    totalPrice -= selectedKeyboard.getPrice();
+                                                    selectedKeyboard = null;
+                                                } else {
+                                                    System.out.println("Invalid response. Please answer with 'yes' or 'no'.");
+                                                    satisfaction = scanner.next();
+                                                }
                                             }
                                         } else {
                                             System.out.print("Invalid choice. Please enter a number between 1 and 4: ");
@@ -180,12 +221,13 @@ public class SelectingPeripherals {
                             case 2:
                                 boolean validMouse = false;
                                 while (!validMouse) {
-                                    System.out.println("Please select a mouse:");
-                                    System.out.println("1: " + budgetMouse.getBrand() + " Mouse- $" + budgetMouse.getPrice());
-                                    System.out.println("2: " + midRangeMouse.getBrand() + " Mouse- $" + midRangeMouse.getPrice());
-                                    System.out.println("3: " + gamingMouse.getBrand() + " Mouse- $" + gamingMouse.getPrice());
-                                    System.out.println("4: " + highEndMouse.getBrand() + " Mouse- $" + highEndMouse.getPrice());
-                                    System.out.print("Please enter your choice (1-4): ");
+                                    System.out.println("\nPlease select a mouse:");
+                                    System.out.println("1: " + budgetMouse.getBrand() + " " + budgetMouse.getName() + " - $" + budgetMouse.getPrice());
+                                    System.out.println("2: " + midRangeMouse.getBrand() + " " + midRangeMouse.getName() + " - $" + midRangeMouse.getPrice());
+                                    System.out.println("3: " + gamingMouse.getBrand() + " " + gamingMouse.getName() + " - $" + gamingMouse.getPrice());
+                                    System.out.println("4: " + highEndMouse.getBrand() + " " + highEndMouse.getName() + " - $" + highEndMouse.getPrice());
+                                   
+                                    System.out.print("\nPlease enter your choice (1-4): ");
                                     if (scanner.hasNextInt()) {
                                         int mouseChoice = scanner.nextInt();
                                         if (mouseChoice >= 1 && mouseChoice <= 4) {
@@ -193,16 +235,49 @@ public class SelectingPeripherals {
                                             switch (mouseChoice) {
                                                 case 1:
                                                     selectedMouse = budgetMouse;
+                                                    System.out.println("You have selected: ");
+                                                    System.out.println("\n" + budgetMouse.toString());
+                                                    totalPowerConsumption += budgetMouse.getPowerConsumption();
+                                                    totalPrice += budgetMouse.getPrice();
                                                     break;
                                                 case 2:
                                                     selectedMouse = midRangeMouse;
+                                                    System.out.println("You have selected: ");
+                                                    System.out.println("\n" + midRangeMouse.toString());
+                                                    totalPowerConsumption += midRangeMouse.getPowerConsumption();
+                                                    totalPrice += midRangeMouse.getPrice();
                                                     break;
                                                 case 3:
                                                     selectedMouse = gamingMouse;
+                                                    System.out.println("You have selected: ");
+                                                    System.out.println("\n" + gamingMouse.toString());
+                                                    totalPowerConsumption += gamingMouse.getPowerConsumption();
+                                                    totalPrice += gamingMouse.getPrice();
                                                     break;
                                                 case 4:
                                                     selectedMouse = highEndMouse;
+                                                    System.out.println("You have selected: ");
+                                                    System.out.println("\n" + highEndMouse.toString());
+                                                    totalPowerConsumption += highEndMouse.getPowerConsumption();
+                                                    totalPrice += highEndMouse.getPrice();
                                                     break;
+                                            }
+                                            System.out.println("Are you satisfied with your selection? (yes/no)");
+                                            String satisfaction = scanner.next();
+                                            boolean isSatisfied = false;
+                                            while (!isSatisfied) {
+                                                if (satisfaction.equalsIgnoreCase("yes") || satisfaction.equalsIgnoreCase("y") || satisfaction.equalsIgnoreCase("sure") || satisfaction.equalsIgnoreCase("absolutely") || satisfaction.equalsIgnoreCase("definitely") || satisfaction.equalsIgnoreCase("of course")) {
+                                                    isSatisfied = true;
+                                                } else if (satisfaction.equalsIgnoreCase("no") || satisfaction.equalsIgnoreCase("n") || satisfaction.equalsIgnoreCase("not really") || satisfaction.equalsIgnoreCase("nope") || satisfaction.equalsIgnoreCase("not at all")) {
+                                                    isSatisfied = true;
+                                                    validMouse = false;
+                                                    totalPowerConsumption -= selectedMouse.getPowerConsumption();
+                                                    totalPrice -= selectedMouse.getPrice();
+                                                    selectedMouse = null;
+                                                } else {
+                                                    System.out.println("Invalid response. Please answer with 'yes' or 'no'.");
+                                                    satisfaction = scanner.next();
+                                                }
                                             }
                                         } else {
                                             System.out.print("Invalid choice. Please enter a number between 1 and 4: ");
@@ -216,12 +291,12 @@ public class SelectingPeripherals {
                             case 3:
                                 boolean validMonitor = false;
                                 while (!validMonitor) {
-                                    System.out.println("Please select a monitor:");
-                                    System.out.println("1: " + budgetMonitor.getBrand() + " Monitor- $" + budgetMonitor.getPrice());
-                                    System.out.println("2: " + midRangeMonitor.getBrand() + " Monitor- $" + midRangeMonitor.getPrice());
-                                    System.out.println("3: " + gamingMonitor.getBrand() + " Monitor- $" + gamingMonitor.getPrice());
-                                    System.out.println("4: " + highEndMonitor.getBrand() + " Monitor- $" + highEndMonitor.getPrice());
-                                    System.out.print("Please enter your choice (1-4): ");
+                                    System.out.println("\nPlease select a monitor:");
+                                    System.out.println("1: " + budgetMonitor.getBrand() + " " + budgetMonitor.getName() + " - $" + budgetMonitor.getPrice());
+                                    System.out.println("2: " + midRangeMonitor.getBrand() + " " + midRangeMonitor.getName() + " - $" + midRangeMonitor.getPrice());
+                                    System.out.println("3: " + gamingMonitor.getBrand() + " " + gamingMonitor.getName() + " - $" + gamingMonitor.getPrice());
+                                    System.out.println("4: " + highEndMonitor.getBrand() + " " + highEndMonitor.getName() + " - $" + highEndMonitor.getPrice());
+                                    System.out.print("\nPlease enter your choice (1-4): ");
                                     if (scanner.hasNextInt()) {
                                         int monitorChoice = scanner.nextInt();
                                         if (monitorChoice >= 1 && monitorChoice <= 4) {
@@ -229,16 +304,49 @@ public class SelectingPeripherals {
                                             switch (monitorChoice) {
                                                 case 1:
                                                     selectedMonitor = budgetMonitor;
+                                                    System.out.println("You have selected: ");
+                                                    System.out.println("\n" + budgetMonitor.toString());
+                                                    totalPowerConsumption += budgetMonitor.getPowerConsumption();
+                                                    totalPrice += budgetMonitor.getPrice();
                                                     break;
                                                 case 2:
                                                     selectedMonitor = midRangeMonitor;
+                                                    System.out.println("You have selected: ");
+                                                    System.out.println("\n" + midRangeMonitor.toString());
+                                                    totalPowerConsumption += midRangeMonitor.getPowerConsumption();
+                                                    totalPrice += midRangeMonitor.getPrice();
                                                     break;
                                                 case 3:
                                                     selectedMonitor = gamingMonitor;
+                                                    System.out.println("You have selected: ");
+                                                    System.out.println("\n" + gamingMonitor.toString());
+                                                    totalPowerConsumption += gamingMonitor.getPowerConsumption();
+                                                    totalPrice += gamingMonitor.getPrice();
                                                     break;
                                                 case 4:
                                                     selectedMonitor = highEndMonitor;
+                                                    System.out.println("You have selected: ");
+                                                    System.out.println("\n" + highEndMonitor.toString());
+                                                    totalPowerConsumption += highEndMonitor.getPowerConsumption();
+                                                    totalPrice += highEndMonitor.getPrice();
                                                     break;
+                                            }
+                                            System.out.println("Are you satisfied with your selection? (yes/no)");
+                                            String satisfaction = scanner.next();
+                                            boolean isSatisfied = false;
+                                            while (!isSatisfied) {
+                                                if (satisfaction.equalsIgnoreCase("yes") || satisfaction.equalsIgnoreCase("y") || satisfaction.equalsIgnoreCase("sure") || satisfaction.equalsIgnoreCase("absolutely") || satisfaction.equalsIgnoreCase("definitely") || satisfaction.equalsIgnoreCase("of course")) {
+                                                    isSatisfied = true;
+                                                } else if (satisfaction.equalsIgnoreCase("no") || satisfaction.equalsIgnoreCase("n") || satisfaction.equalsIgnoreCase("not really") || satisfaction.equalsIgnoreCase("nope") || satisfaction.equalsIgnoreCase("not at all")) {
+                                                    isSatisfied = true;
+                                                    validMonitor = false;
+                                                    totalPowerConsumption -= selectedMonitor.getPowerConsumption();
+                                                    totalPrice -= selectedMonitor.getPrice();
+                                                    selectedMonitor = null;
+                                                } else {
+                                                    System.out.println("Invalid response. Please answer with 'yes' or 'no'.");
+                                                    satisfaction = scanner.next();
+                                                }
                                             }
                                         } else {
                                             System.out.print("Invalid choice. Please enter a number between 1 and 4: ");
@@ -252,12 +360,13 @@ public class SelectingPeripherals {
                             case 4:
                                 boolean validHeadset = false;
                                 while (!validHeadset) {
-                                    System.out.println("Please select a headset:");
-                                    System.out.println("1: " + budgetHeadset.getBrand() + " Headset- $" + budgetHeadset.getPrice());
-                                    System.out.println("2: " + midRangeHeadset.getBrand() + " Headset- $" + midRangeHeadset.getPrice());
-                                    System.out.println("3: " + gamingHeadset.getBrand() + " Headset- $" + gamingHeadset.getPrice());
-                                    System.out.println("4: " + highEndHeadset.getBrand() + " Headset- $" + highEndHeadset.getPrice());
-                                    System.out.print("Please enter your choice (1-4): ");
+                                    System.out.println("\nPlease select a headset:");
+                                    System.out.println("1: " + budgetHeadset.getBrand() + " " + budgetHeadset.getName() + " - $" + budgetHeadset.getPrice());
+                                    System.out.println("2: " + midRangeHeadset.getBrand() + " " + midRangeHeadset.getName() + " - $" + midRangeHeadset.getPrice());
+                                    System.out.println("3: " + gamingHeadset.getBrand() + " " + gamingHeadset.getName() + " - $" + gamingHeadset.getPrice());
+                                    System.out.println("4: " + highEndHeadset.getBrand() + " " + highEndHeadset.getName() + " - $" + highEndHeadset.getPrice());
+                                    
+                                    System.out.print("\nPlease enter your choice (1-4): ");
                                     if (scanner.hasNextInt()) {
                                         int headsetChoice = scanner.nextInt();
                                         if (headsetChoice >= 1 && headsetChoice <= 4) {
@@ -265,16 +374,49 @@ public class SelectingPeripherals {
                                             switch (headsetChoice) {
                                                 case 1:
                                                     selectedHeadset = budgetHeadset;
+                                                    System.out.println("You have selected: ");
+                                                    System.out.println("\n" + budgetHeadset.toString());
+                                                    totalPowerConsumption += budgetHeadset.getPowerConsumption();
+                                                    totalPrice += budgetHeadset.getPrice();
                                                     break;
                                                 case 2:
                                                     selectedHeadset = midRangeHeadset;
+                                                    System.out.println("You have selected: ");
+                                                    System.out.println("\n" + midRangeHeadset.toString());
+                                                    totalPowerConsumption += midRangeHeadset.getPowerConsumption();
+                                                    totalPrice += midRangeHeadset.getPrice();
                                                     break;
                                                 case 3:
                                                     selectedHeadset = gamingHeadset;
+                                                    System.out.println("You have selected: ");
+                                                    System.out.println("\n" + gamingHeadset.toString());
+                                                    totalPowerConsumption += gamingHeadset.getPowerConsumption();
+                                                    totalPrice += gamingHeadset.getPrice();
                                                     break;
                                                 case 4:
                                                     selectedHeadset = highEndHeadset;
+                                                    System.out.println("You have selected: ");
+                                                    System.out.println("\n" + highEndHeadset.toString());
+                                                    totalPowerConsumption += highEndHeadset.getPowerConsumption();
+                                                    totalPrice += highEndHeadset.getPrice();
                                                     break;
+                                            }
+                                            System.out.println("Are you satisfied with your selection? (yes/no)");
+                                            String satisfaction = scanner.next();
+                                            boolean isSatisfied = false;
+                                            while (!isSatisfied) {
+                                                if (satisfaction.equalsIgnoreCase("yes") || satisfaction.equalsIgnoreCase("y") || satisfaction.equalsIgnoreCase("sure") || satisfaction.equalsIgnoreCase("absolutely") || satisfaction.equalsIgnoreCase("definitely") || satisfaction.equalsIgnoreCase("of course")) {
+                                                    isSatisfied = true;
+                                                } else if (satisfaction.equalsIgnoreCase("no") || satisfaction.equalsIgnoreCase("n") || satisfaction.equalsIgnoreCase("not really") || satisfaction.equalsIgnoreCase("nope") || satisfaction.equalsIgnoreCase("not at all")) {
+                                                    isSatisfied = true;
+                                                    validHeadset = false;
+                                                    totalPowerConsumption -= selectedHeadset.getPowerConsumption();
+                                                    totalPrice -= selectedHeadset.getPrice();
+                                                    selectedHeadset = null;
+                                                } else {
+                                                    System.out.println("Invalid response. Please answer with 'yes' or 'no'.");
+                                                    satisfaction = scanner.next();
+                                                }
                                             }
                                         } else {
                                             System.out.print("Invalid choice. Please enter a number between 1 and 4: ");
@@ -288,12 +430,13 @@ public class SelectingPeripherals {
                             case 5:
                                 boolean validMousepad = false;
                                 while (!validMousepad) {
-                                    System.out.println("Please select a mousepad:");
-                                    System.out.println("1: " + budgetMousepad.getBrand() + " Mousepad- $" + budgetMousepad.getPrice());
-                                    System.out.println("2: " + midRangeMousepad.getBrand() + " Mousepad- $" + midRangeMousepad.getPrice());
-                                    System.out.println("3: " + gamingMousepad.getBrand() + " Mousepad- $" + gamingMousepad.getPrice());
-                                    System.out.println("4: " + highEndMousepad.getBrand() + " Mousepad- $" + highEndMousepad.getPrice());
-                                    System.out.print("Please enter your choice (1-4): ");
+                                    System.out.println("\nPlease select a mousepad:");
+                                    System.out.println("1: " + budgetMousepad.getBrand() + " " + budgetMousepad.getName() + " - $" + budgetMousepad.getPrice());
+                                    System.out.println("2: " + midRangeMousepad.getBrand() + " " + midRangeMousepad.getName() + " - $" + midRangeMousepad.getPrice());
+                                    System.out.println("3: " + gamingMousepad.getBrand() + " " + gamingMousepad.getName() + " - $" + gamingMousepad.getPrice());
+                                    System.out.println("4: " + highEndMousepad.getBrand() + " " + highEndMousepad.getName() + " - $" + highEndMousepad.getPrice());
+
+                                    System.out.print("\nPlease enter your choice (1-4): ");
                                     if (scanner.hasNextInt()) {
                                         int mousepadChoice = scanner.nextInt();
                                         if (mousepadChoice >= 1 && mousepadChoice <= 4) {
@@ -301,16 +444,49 @@ public class SelectingPeripherals {
                                             switch (mousepadChoice) {
                                                 case 1:
                                                     selectedMousepad = budgetMousepad;
+                                                    System.out.println("You have selected: ");
+                                                    System.out.println("\n" + budgetMousepad.toString());
+                                                    totalPowerConsumption += budgetMousepad.getPowerConsumption();
+                                                    totalPrice += budgetMousepad.getPrice();
                                                     break;
                                                 case 2:
                                                     selectedMousepad = midRangeMousepad;
+                                                    System.out.println("You have selected: ");
+                                                    System.out.println("\n" + midRangeMousepad.toString());
+                                                    totalPowerConsumption += midRangeMousepad.getPowerConsumption();
+                                                    totalPrice += midRangeMousepad.getPrice();
                                                     break;
                                                 case 3:
                                                     selectedMousepad = gamingMousepad;
+                                                    System.out.println("You have selected: ");
+                                                    System.out.println("\n" + gamingMousepad.toString());
+                                                    totalPowerConsumption += gamingMousepad.getPowerConsumption();
+                                                    totalPrice += gamingMousepad.getPrice();
                                                     break;
                                                 case 4:
                                                     selectedMousepad = highEndMousepad;
+                                                    System.out.println("You have selected: ");
+                                                    System.out.println("\n" + highEndMousepad.toString());
+                                                    totalPowerConsumption += highEndMousepad.getPowerConsumption();
+                                                    totalPrice += highEndMousepad.getPrice();
                                                     break;
+                                            }
+                                            System.out.println("Are you satisfied with your selection? (yes/no)");
+                                            String satisfaction = scanner.next();
+                                            boolean isSatisfied = false;
+                                            while (!isSatisfied) {
+                                                if (satisfaction.equalsIgnoreCase("yes") || satisfaction.equalsIgnoreCase("y") || satisfaction.equalsIgnoreCase("sure") || satisfaction.equalsIgnoreCase("absolutely") || satisfaction.equalsIgnoreCase("definitely") || satisfaction.equalsIgnoreCase("of course")) {
+                                                    isSatisfied = true;
+                                                } else if (satisfaction.equalsIgnoreCase("no") || satisfaction.equalsIgnoreCase("n") || satisfaction.equalsIgnoreCase("not really") || satisfaction.equalsIgnoreCase("nope") || satisfaction.equalsIgnoreCase("not at all")) {
+                                                    isSatisfied = true;
+                                                    validMousepad = false;
+                                                    totalPowerConsumption -= selectedMousepad.getPowerConsumption();
+                                                    totalPrice -= selectedMousepad.getPrice();
+                                                    selectedMousepad = null;
+                                                } else {
+                                                    System.out.println("Invalid response. Please answer with 'yes' or 'no'.");
+                                                    satisfaction = scanner.next();
+                                                }
                                             }
                                         } else {
                                             System.out.print("Invalid choice. Please enter a number between 1 and 4: ");
@@ -331,7 +507,7 @@ public class SelectingPeripherals {
                 }
 
             }
-            System.out.println("Would you like to select another peripheral? (yes/no)");
+            System.out.println("\nWould you like to select another peripheral? (yes/no)");
             String anotherPeripheral = scanner.next();
             if (anotherPeripheral.equalsIgnoreCase("no") || anotherPeripheral.equalsIgnoreCase("n")) {
                 selecting = false;
@@ -342,42 +518,31 @@ public class SelectingPeripherals {
             }
 
         }
-        System.out.println("You have selected the following peripherals:");
-        int totalPowerConsumption = 0;
-        double totalPrice = 0;
+        System.out.println("\nYou have selected the following peripherals:");
+        
         if (selectedKeyboard != null) {
-            totalPowerConsumption += selectedKeyboard.getPowerConsumption();
-            totalPrice += selectedKeyboard.getPrice();
-            System.out.println("Keyboard: " + selectedKeyboard.getBrand() + " - $" + selectedKeyboard.getPrice());
+            System.out.println("Keyboard: " + selectedKeyboard.getBrand() + " " + selectedKeyboard.getName() + " - $" + String.format("%.2f", selectedKeyboard.getPrice()));
         }
         if (selectedMouse != null) {
-            totalPowerConsumption += selectedMouse.getPowerConsumption();
-            totalPrice += selectedMouse.getPrice();
-            System.out.println("Mouse: " + selectedMouse.getBrand() + " - $" + selectedMouse.getPrice());
+            System.out.println("Mouse: " + selectedMouse.getBrand() + " " + selectedMouse.getName() + " - $" + String.format("%.2f", selectedMouse.getPrice()));
         }
         if (selectedMonitor != null) {
-            totalPowerConsumption += selectedMonitor.getPowerConsumption();
-            totalPrice += selectedMonitor.getPrice();
-            System.out.println("Monitor: " + selectedMonitor.getBrand() + " - $" + selectedMonitor.getPrice());
+            System.out.println("Monitor: " + selectedMonitor.getBrand() + " " + selectedMonitor.getName() + " - $" + String.format("%.2f", selectedMonitor.getPrice()));
         }
         if (selectedHeadset != null) {
-            totalPowerConsumption += selectedHeadset.getPowerConsumption();
-            totalPrice += selectedHeadset.getPrice();
-            System.out.println("Headset: " + selectedHeadset.getBrand() + " - $" + selectedHeadset.getPrice());
+            System.out.println("Headset: " + selectedHeadset.getBrand() + " " + selectedHeadset.getName() + " - $" + String.format("%.2f", selectedHeadset.getPrice()));
         }
         if (selectedMousepad != null) {
-            totalPowerConsumption += selectedMousepad.getPowerConsumption();
-            totalPrice += selectedMousepad.getPrice();
-            System.out.println("Mousepad: " + selectedMousepad.getBrand() + " - $" + selectedMousepad.getPrice());
+            System.out.println("Mousepad: " + selectedMousepad.getBrand() + " " + selectedMousepad.getName() + " - $" + String.format("%.2f", selectedMousepad.getPrice()));
         }
         System.out.println("Total Power Consumption: " + totalPowerConsumption + "W");
-        System.out.println("Total Price: $" + totalPrice);
+        System.out.println("Total Price: $" + String.format("%.2f", totalPrice));
         System.out.println("Are you satisfied with your selection? (yes/no)");
         String satisfaction = scanner.next();
         boolean isSatisfied = false;
         while (!isSatisfied) {
             if (satisfaction.equalsIgnoreCase("yes") || satisfaction.equalsIgnoreCase("y") || satisfaction.equalsIgnoreCase("sure") || satisfaction.equalsIgnoreCase("absolutely") || satisfaction.equalsIgnoreCase("definitely") || satisfaction.equalsIgnoreCase("of course")) {
-                System.out.println("Great! Enjoy your new peripherals.");
+                System.out.println("Great! Enjoy your new setup.");
                 isSatisfied = true;
             } else if (satisfaction.equalsIgnoreCase("no") || satisfaction.equalsIgnoreCase("n") || satisfaction.equalsIgnoreCase("not really") || satisfaction.equalsIgnoreCase("nope") || satisfaction.equalsIgnoreCase("not at all")) {
                 isSatisfied = true;

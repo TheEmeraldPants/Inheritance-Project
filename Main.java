@@ -140,7 +140,7 @@ public class Main {
         new CustomPCBuilder().buildCustomPC();
         }
 
-        System.out.println("\n \n \n Now that you have your computer, would you like to add peripherals?");
+        System.out.println("\n \n \nNow that you have your computer, would you like suggestions for your peripherals?");
         String peripherals = scan.nextLine().toLowerCase();
         while (!peripherals.equals("yes") && !peripherals.equals("no") && !peripherals.equals("y") && !peripherals.equals("yeah") && !peripherals.equals("sure") && !peripherals.equals("n") && !peripherals.equals("nah") && !peripherals.equals("no thanks")) {
             System.out.println("Please answer with 'yes' or 'no'.");
