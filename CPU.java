@@ -23,6 +23,7 @@ public class CPU extends Component {
     public boolean getCanOverclock() {
         return canOverclock;
     }
+}
 
 //     public boolean isCompatible(Motherboard motherboard) {
 //         return motherboard.getCpuType().equals(type);
