@@ -139,6 +139,19 @@ public class Main {
         
         new CustomPCBuilder().buildCustomPC();
         }
+
+        System.out.println("\n \n \n Now that you have your computer, would you like to add peripherals?");
+        String peripherals = scan.nextLine().toLowerCase();
+        while (!peripherals.equals("yes") && !peripherals.equals("no") && !peripherals.equals("y") && !peripherals.equals("yeah") && !peripherals.equals("sure") && !peripherals.equals("n") && !peripherals.equals("nah") && !peripherals.equals("no thanks")) {
+            System.out.println("Please answer with 'yes' or 'no'.");
+            peripherals = scan.nextLine().toLowerCase();
+        }
+        if (peripherals.equals("yes") || peripherals.equals("y") || peripherals.equals("yeah") || peripherals.equals("sure")) {
+            new SelectingPeripherals().suggestPeripherals();
+        }
+        else {
+            new SelectingPeripherals().selectPeripherals();
+        }
     }
 
     public static void suggestPrebuilt(int taskChoice, Prebuilt... builds) {

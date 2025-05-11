@@ -9,8 +9,8 @@ public class RAM extends Component {
     private boolean hasRGB;
     private int powerConsumption;
     private String description;
-    public RAM(double price, String brand, boolean hasRGB, int powerConsumption, String description, int DDRVersion, int capacity, int speed, String type) {
-        super(price, brand, hasRGB, powerConsumption, description);
+    public RAM(double price, String brand, boolean hasRGB, int powerConsumption, String name, String description, int DDRVersion, int capacity, int speed, String type) {
+        super(price, brand, hasRGB, powerConsumption, name, description);
         this.DDRVersion = DDRVersion;
         this.capacity = capacity;
         this.speed = speed;

@@ -3,8 +3,8 @@ public class Keyboard extends Peripheral {
     private int percentage;
     private boolean hasNumpad;
 
-    public Keyboard(double price, String brand, boolean hasRGB, int powerConsumption, String description, double weight, double[] dimensions, String IOtype, String switchType, int percentage, boolean hasNumpad) {
-        super(price, brand, hasRGB, powerConsumption, description, weight, dimensions, IOtype);
+    public Keyboard(double price, String brand, boolean hasRGB, int powerConsumption, String name, String description, double weight, double[] dimensions, String IOtype, String switchType, int percentage, boolean hasNumpad) {
+        super(price, brand, hasRGB, powerConsumption, description, name, weight, dimensions, IOtype);
         this.switchType = switchType;
         this.percentage = percentage;
         this.hasNumpad = hasNumpad;
@@ -31,4 +31,11 @@ public class Keyboard extends Peripheral {
         this.hasNumpad = hasNumpad;
     }
     
+    @Override
+    public String toString() {
+        return super.toString() + "\n" +
+               "Switch Type: " + switchType + "\n" +
+               "Percentage: " + percentage + "%\n" +
+               "Has Numpad: " + (hasNumpad ? "Yes" : "No");
+    }
 }

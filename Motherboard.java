@@ -8,8 +8,8 @@ public class Motherboard extends Component {
     private int CPUArchetecture;// 1700  Supports 12th, 13th, and 14th Gen Intel CPUs.
 //1200 Supports 10th and 11th Gen Intel CPUs.
 //5 Supports Ryzen 7000 Series CPUs.
-    public Motherboard(double price, String brand, boolean hasRGB, int powerConsumption, String description, int size, int RAMslots, int CPUArchetecture ,String cpuType, String Io) {
-        super(price, brand, hasRGB, powerConsumption, description);
+    public Motherboard(double price, String brand, boolean hasRGB, int powerConsumption, String name, String description, int size, int RAMslots, int CPUArchetecture ,String cpuType, String Io) {
+        super(price, brand, hasRGB, powerConsumption, name, description);
         this.size = size;
         this.RAMslots = RAMslots;
         this.cpuType = cpuType;

@@ -37,7 +37,7 @@
 // Cooling systems RGB
 // type
 
-
+/* 
 public class Component {
     protected double price;
     protected String brand;
@@ -57,3 +57,5 @@ public class Component {
         return description;
     }
 }
+
+*/

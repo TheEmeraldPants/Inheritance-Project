@@ -265,7 +265,6 @@ public class CustomPCBuilder {
 
             int choice = getIntInput();
 
-<<<<<<< HEAD
             switch (choice) {
                 case 1:
                     buildCustomPC();
@@ -282,21 +281,6 @@ public class CustomPCBuilder {
                     System.out.println("Exiting PC Builder. Goodbye!");
                     break;
                 default:
-=======
-    while (building) {
-        System.out.println("\n--- Custom PC Builder ---");
-        System.out.println("1. Start Building");
-        System.out.println("2. Reset Build");
-        boolean isValidInput = false;
-        int choice = 0;
-        while (!isValidInput) {
-            System.out.print("Select an option (1 or 2): ");
-            if (scanner.hasNextInt()) {
-                choice = scanner.nextInt();
-                if (choice == 1 || choice == 2) {
-                    isValidInput = true;
-                } else {
->>>>>>> 4a05c5c (More bugfixing)
                     System.out.println("Invalid option. Please try again.");
             }
         }
@@ -544,404 +528,17 @@ public class CustomPCBuilder {
         System.out.print("Choose an option: ");
         int choice = getIntInput();
         if (choice == 1) {
-<<<<<<< HEAD
             UPS newUPS = selectUPS(); // This is the actual selection method
             if (newUPS != null) {
                 selectedUPS = newUPS;
                 totalCost += selectedUPS.getPrice();
                 totalPowerConsumption += selectedUPS.getPowerConsumption(); // UPS itself consumes a little power
                 System.out.println(selectedUPS.getName() + " added to build.");
-=======
-            int step = 0;
-            while (step < 7) {
-                if (step == 0) {
-                    if (selectCPU()) step++;
-                    else step--;
-                } else if (step == 1) {
-                    if (selectMotherboard()) step++;
-                    else step--;
-                } else if (step == 2) {
-                    if (selectGPU()) step++;
-                    else step--;
-                } else if (step == 3) {
-                    if (selectRAM()) step++;
-                    else step--;
-                } else if (step == 4) {
-                    if (selectStorage()) step++;
-                    else step--;
-                } else if (step == 5) {
-                    if (selectCase()) step++;
-                    else step--;
-                } else if (step == 6) {
-                    if (selectPSU()) step++;
-                    else step--;
-                }
-            }
-            
-            System.out.println("\nBuild Complete! Total cost: $" + totalCost);
-            System.out.println("Do you want to select a UPS?");
-            System.out.println("1. Yes");
-            System.out.println("2. No");
-            System.out.println("3. Exit");
-            String temp = scanner.next();
-            int upsChoice;
-            try {
-                upsChoice = Integer.parseInt(temp);
-            } catch (Exception e) {
-                upsChoice = -2;
-            }
-            if (upsChoice == 1) {
-                selectUPS();
-            } else if (upsChoice == 2) {
-                System.out.println("No UPS selected.");
-            } else if (upsChoice == 3) {
-                System.out.println("Exiting...");
-                return;
-            } else {
-                System.out.println("Invalid choice. Exiting...");
-                return;
-            }
-            
-            System.out.println("Do you want to go back and change a component? (1 = Yes, 0 = No)");
-            if (scanner.nextInt() == 1) {
-                buildCustomPC(); // restart build
-            } else {
-                return;
-            }
-        } else if (choice == 2) {
-            resetBuild();
-        }
-        else {
-            System.out.println("Invalid option. Try again.");
-        }
-    }
-}
-
-public void resetBuild() {
-    totalCost = 0;
-    selectedCPU = null;
-    selectedMotherboard = null;
-    selectedGPU = null;
-    selectedRAM = null;
-    selectedStorage = null;
-    selectedCase = null;
-    selectedPSU = null;
-    selectedUPS = null;
-    System.out.println("Build reset.\n");
-}
-
-public boolean selectPSU() {
-    System.out.println("\nSelect a PSU (or enter -1 to go back):");
-    System.out.println("0: MSI MAG A550BN - $50.00");
-    System.out.println("1: MSI MAG A650BN - $60.00");
-    System.out.println("2: MSI MPG A750GF - $120.00");
-    System.out.println("3: MSI MAG A750GL - $100.00");
-    System.out.println("4: Corsair RM850x - $130.00");
-    System.out.print("Choose index: ");
-    boolean isValidInput = false;
-    int choice = 0;
-    while (!isValidInput) {
-        if (scanner.hasNextInt()) {
-            choice = scanner.nextInt();
-            if (choice >= -1 && choice <= 4) {
-                isValidInput = true;
-            } else {
-                System.out.println("Invalid option. Please try again.");
-            }
-        } else {
-            System.out.println("Invalid input. Please enter a number.");
-            scanner.next(); // Clear invalid input
-        }
-    }
-    
-    switch (choice) {
-        case 0:
-            selectedPSU = msiMAGA550BN;
-            break;
-        case 1:
-            selectedPSU = msiMAGA650BN;
-            break;
-        case 2:
-            selectedPSU = msiMPGA750GF;
-            break;
-        case 3:
-            selectedPSU = msiMAGA750GL;
-            break;
-        case 4:
-            selectedPSU = corsairRM850x;
-            break;
-        case -1:
-            return false;
-        default:
-            System.out.println("Invalid choice. Please select again.");
-            return selectPSU(); // retry if invalid
-    }
-    totalCost += selectedPSU.getPrice();
-    System.out.println("Selected PSU: " + selectedPSU.getDescription());
-    System.out.println("Current total cost: $" + totalCost);
-    return true;
-}
-
-public boolean selectRAM() {
-    System.out.println("\nSelect RAM (or enter -1 to go back):");
-    System.out.println("0: Corsair 12GB DDR4 - $50.00");
-    System.out.println("1: Corsair 16GB DDR4 RGB - $80.00");
-    System.out.println("2: G.Skill 16GB DDR5 RGB - $120.00");
-    System.out.println("3: Corsair 32GB DDR5 - $240.00");
-    System.out.print("Choose index: ");
-    boolean isValidInput = false;
-    int choice = 0;
-    while (!isValidInput) {
-        if (scanner.hasNextInt()) {
-            choice = scanner.nextInt();
-            if (choice >= -1 && choice <= 3) {
-                isValidInput = true;
-            } else {
-                System.out.println("Invalid option. Please try again.");
-            }
-        } else {
-            System.out.println("Invalid input. Please enter a number.");
-            scanner.next(); // Clear invalid input
-        }
-    }
-
-    switch (choice) {
-        case 0:
-            selectedRAM = budgetRAM;
-            break;
-        case 1:
-            selectedRAM = midRAM16GBDDR4;
-            break;
-        case 2:
-            selectedRAM = midRAM16GBDDR5;
-            break;
-        case 3:
-            selectedRAM = highRAM32GBDDR5;
-            break;
-        case -1:
-            return false;
-        default:
-            System.out.println("Invalid choice. Please select again.");
-            return selectRAM(); // retry if invalid
-    }
-
-    totalCost += selectedRAM.getPrice();
-    System.out.println("Selected RAM: " + selectedRAM.getDescription());
-    System.out.println("Current total cost: $" + totalCost);
-    System.out.println("");
-    return true;
-}
-public boolean selectGPU() {
-    // Example GPUs: Add real GPU options with prices and descriptions
-    System.out.println("\nSelect a GPU (or enter -1 to go back):");
-    System.out.println("0: Nvidia RTX 4060 - $350.00");
-    System.out.println("1: Nvidia RTX 4070 - $550.00");
-    System.out.println("2: Nvidia RTX 4090 - $1500.00");
-    System.out.println("3: AMD RX 6600 - $250.00");
-    System.out.println("4: AMD RX 6700XT - $450.00");
-    System.out.println("5: AMD RX 6900XT - $1000.00");
-    System.out.println("6: Intel ARC A750 - $400.00");
-    System.out.print("Choose index: ");
-    boolean isValidInput = false;
-    int choice = 0;
-    while (!isValidInput) {
-        if (scanner.hasNextInt()) {
-            choice = scanner.nextInt();
-            if (choice >= -1 && choice <= 6) {
-                isValidInput = true;
-            } else {
-                System.out.println("Invalid option. Please try again.");
-            }
-        } else {
-            System.out.println("Invalid input. Please enter a number.");
-            scanner.next(); // Clear invalid input
-        }
-    }
-    
-    switch (choice) {
-        case 0:
-            selectedGPU = rtx4060;
-            break;
-        case 1:
-            selectedGPU = rtx4070;
-            break;
-        case 2:
-            selectedGPU = rtx4090;
-            break;
-        case 3:
-            selectedGPU = amdRX6600;
-            break;
-        case 4:
-            selectedGPU = amdRX6700XT;
-            break;
-        case 5:
-            selectedGPU = amdRX6900XT;
-            break;
-        case 6:
-            selectedGPU = intelARC750;
-            break;
-        case -1:
-            return false;
-        default:
-            System.out.println("Invalid choice. Please select again.");
-            return selectGPU(); // retry if invalid
-    }
-    totalCost += selectedGPU.getPrice();
-    System.out.println("Selected GPU: " + selectedGPU.getDescription());
-    System.out.println("Total cost updated: $" + totalCost);
-    return true; // Ensure a boolean is returned in all cases
-}
-public boolean selectUPS() {
-    boolean validChoice = false;
-    while (!validChoice) {
-        System.out.println("Would you like to include a UPS?");
-        System.out.println("1. Yes (Cost: $150)");
-        System.out.println("2. No (No cost added)");
-        System.out.print("Enter your choice (1 for Yes, 2 for No): ");
-        boolean isValidInput = false;
-        int choice = 0;
-        while (!isValidInput) {
-            if (scanner.hasNextInt()) {
-                choice = scanner.nextInt();
-                if (choice == 1 || choice == 2) {
-                    isValidInput = true;
-                } else {
-                    System.out.println("Invalid option. Please try again.");
-                }
-            } else {
-                System.out.println("Invalid input. Please enter a number.");
-                scanner.next(); // Clear invalid input
-            }
-        }
-        
-        switch (choice) {
-            case 1:
-                selectedUPS = new UPS(150.00, "CyberPower", true, 20, "CyberPower UPS for gaming PCs", 900);
-                totalCost += selectedUPS.getPrice();
-                System.out.println("You selected a UPS: " + selectedUPS.getDescription());
-                validChoice = true;
-                break;
-            case 2:
-                selectedUPS = null;
-                System.out.println("No UPS selected.");
-                validChoice = true;
-                break;
-            case -1:
-                return false;
-            default:
-                System.out.println("Invalid choice. Please select again.");
-                break;
-        }
-    }
-    System.out.println("Total cost updated: $" + totalCost);
-    return true;
-}
-
-public Boolean selectStorage() {
-    boolean validChoice = false;
-    while (!validChoice) {
-        System.out.println("Select a storage option:");
-        System.out.println("1. Samsung 512GB SSD - $50.00");
-        System.out.println("2. WD 1TB SSD with RGB - $90.00");
-        System.out.println("3. Crucial 2TB SSD - $180.00");
-        System.out.println("4. Seagate 2TB HDD - $50.00");
-        System.out.println("5. WD 4TB HDD - $120.00");
-        System.out.print("Enter the number of your choice: ");
-        boolean isValidInput = false;
-        int choice = 0;
-        while (!isValidInput) {
-            if (scanner.hasNextInt()) {
-                choice = scanner.nextInt();
-                if (choice >= 1 && choice <= 5) {
-                    isValidInput = true;
-                } else {
-                    System.out.println("Invalid option. Please try again.");
-                }
->>>>>>> 4a05c5c (More bugfixing)
             } else {
                 System.out.println("No UPS selected or went back.");
             }
-<<<<<<< HEAD
         } else {
             System.out.println("No UPS will be added.");
-=======
-        }
-
-        switch (choice) {
-            case 1:
-                selectedStorage = budgetSSD;
-                validChoice = true;
-                break;
-            case 2:
-                selectedStorage = midSSD1TB;
-                validChoice = true;
-                break;
-            case 3:
-                selectedStorage = highSSD2TB;
-                validChoice = true;
-                break;
-            case 4:
-                selectedStorage = budgetHDD2TB;
-                validChoice = true;
-                break;
-            case 5:
-                selectedStorage = highHDD4TB;
-                validChoice = true;
-                break;
-            case -1:
-                return false;
-            default:
-                System.out.println("Invalid choice. Please select again.");
-        }
-    }
-    totalCost += selectedStorage.getPrice();
-    System.out.println("You selected: " + selectedStorage.getDescription());
-    System.out.println("Total cost updated: $" + totalCost);
-    return true;
-}
-
-public Boolean selectCase() {
-    boolean validChoice = false;
-    while (!validChoice) {
-        System.out.println("Select a case:");
-        System.out.println("1. Sama Budget Case - $70.00");
-        System.out.println("2. Fractal Design Clean Case - $120.00");
-        System.out.println("3. Corsair Premium RGB Case - $180.00");
-        System.out.print("Enter the number of your choice: ");
-        boolean isValidInput = false;
-        int choice = 0;
-        while (!isValidInput) {
-            if (scanner.hasNextInt()) {
-                choice = scanner.nextInt();
-                if (choice >= 1 && choice <= 3) {
-                    isValidInput = true;
-                } else {
-                    System.out.println("Invalid option. Please try again.");
-                }
-            } else {
-                System.out.println("Invalid input. Please enter a number.");
-                scanner.next(); // Clear invalid input
-            }
-        }
-        
-        switch (choice) {
-            case 1:
-                selectedCase = case1;
-                validChoice = true;
-                break;
-            case 2:
-                selectedCase = case2;
-                validChoice = true;
-                break;
-            case 3:
-                selectedCase = case3;
-                validChoice = true;
-                break;
-            case -1:
-                return false;
-            default:
-                System.out.println("Invalid choice. Please select again.");
->>>>>>> 4a05c5c (More bugfixing)
         }
     }
     
@@ -952,7 +549,6 @@ public Boolean selectCase() {
         // Options to save, start new, or exit are handled by the main run() loop
     }
 
-<<<<<<< HEAD
     // Generic method to display options and get validated input
     private <T extends Component> T presentOptionsAndSelect(String componentType, List<T> options, boolean canGoBack) {
         System.out.println("\nSelect a " + componentType + (canGoBack ? " (or enter -1 to go back):" : ":"));
@@ -960,35 +556,6 @@ public Boolean selectCase() {
             System.out.println("No " + componentType + " options available that match current selections.");
             if(componentType.equals("Motherboard") && selectedCPU == null) {
                 System.out.println("Please select a CPU first to see compatible motherboards.");
-=======
-public boolean selectCPU() {
-    boolean validChoice = false;
-    while (!validChoice) {
-        System.out.println("\nSelect a CPU (or enter -1 to go back):");
-        System.out.println("0: Intel Core i3-12100 - $119.99");
-        System.out.println("1: Intel Core i5-13600K - $250.00");
-        System.out.println("2: Intel Core i7-13700K - $400.00");
-        System.out.println("3: Intel Core i9-13900K - $650.00");
-        System.out.println("4: AMD Ryzen 3/5 Budget CPU - $150.00");
-        System.out.println("5: AMD Ryzen 5 Mid-Range AM4 - $250.00");
-        System.out.println("6: AMD Ryzen 7 Mid-Range AM5 - $350.00");
-        System.out.println("7: AMD Ryzen 7 High-End AM5 - $550.00");
-        System.out.println("8: AMD Ryzen 9 Ultra High-End AM5 - $750.00");
-        System.out.print("Choose index: ");
-        boolean isValidInput = false;
-        int choice = 0;
-        while (!isValidInput) {
-            if (scanner.hasNextInt()) {
-                choice = scanner.nextInt();
-                if (choice >= -1 && choice <= 8) {
-                    isValidInput = true;
-                } else {
-                    System.out.println("Invalid option. Please try again.");
-                }
-            } else {
-                System.out.println("Invalid input. Please enter a number.");
-                scanner.next(); // Clear invalid input
->>>>>>> 4a05c5c (More bugfixing)
             }
             return null; // Should not happen if inventory is well-stocked, but good for safety
         }
@@ -1010,68 +577,16 @@ public boolean selectCPU() {
             return presentOptionsAndSelect(componentType, options, canGoBack); // Recursive call for retry
         }
     }
-<<<<<<< HEAD
     
     private int getIntInput() {
         while (true) {
             try {
                 return scanner.nextInt();
             } catch (InputMismatchException e) {
-=======
-    totalCost += selectedCPU.getPrice();
-    System.out.println("You selected: " + selectedCPU.getDescription());
-    System.out.println("Total cost updated: $" + totalCost);
-    return true;
-}
-
-public boolean selectMotherboard() {
-    boolean validChoice = false;
-    while (!validChoice) {
-        System.out.println("Select a motherboard (or enter -1 to go back):");
-        System.out.println("1. MSI ATX with WiFi - $100");
-        System.out.println("2. ASUS Micro ATX without WiFi - $80");
-        System.out.println("3. Gigabyte ATX with RGB and WiFI - $150");
-        System.out.print("Enter your choice: ");
-        boolean isValidInput = false;
-        int choice = 0;
-        while (!isValidInput) {
-            if (scanner.hasNextInt()) {
-                choice = scanner.nextInt();
-                if (choice >= -1 && choice <= 3) {
-                    isValidInput = true;
-                } else {
-                    System.out.println("Invalid option. Please try again.");
-                }
-            } else {
->>>>>>> 4a05c5c (More bugfixing)
                 System.out.println("Invalid input. Please enter a number.");
                 scanner.next(); // Clear the invalid input
             }
         }
-<<<<<<< HEAD
-=======
-        
-        switch (choice) {
-            case 1:
-                selectedMotherboard = new Motherboard(100.00, "MSI", true, 50, "WiFi enabled ATX motherboard", 12, 4, 1700, "Intel", "USB 3.2, HDMI");
-                validChoice = true;
-                break;
-            case 2:
-                selectedMotherboard = new Motherboard(80.00, "ASUS", false, 40, "No WiFi Micro ATX motherboard", 12, 2, 1700, "Intel", "USB 3.2, HDMI");
-                validChoice = true;
-                break;
-            case 3:
-                selectedMotherboard = new Motherboard(150.00, "Gigabyte", true, 60, "RGB enabled ATX motherboard", 12, 4, 1700, "Intel", "USB 3.2, HDMI");
-                validChoice = true;
-                break;
-            case -1:
-                return false;
-            default:
-                System.out.println("Invalid choice. Please select again.");
-                validChoice = false;
-                break;
-        }
->>>>>>> 4a05c5c (More bugfixing)
     }
 
 

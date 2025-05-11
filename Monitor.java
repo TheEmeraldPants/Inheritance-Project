@@ -2,8 +2,8 @@ public class Monitor extends Peripheral {
     protected String resolution;
     protected boolean hasStand;
 
-    public Monitor(double p, String b, boolean rgb, int pCon, String desc, double w, double[] d, String i, String res, boolean stand) {
-        super(p, b, rgb, pCon, desc, w, d, i);
+    public Monitor(double price, String brand, boolean rgb, int pCon, String name, String desc, double weight, double[] dimensions, String iotype, String res, boolean stand) {
+        super(price, brand, rgb, pCon, name, desc, weight, dimensions, iotype);
         resolution = res;
         hasStand = stand;
         //super.setDescription("A monitor is what you use to look at your computer's video output. \n They can have different resolutions, meaning higher or lower pixel quality, and some have stands");
@@ -23,5 +23,11 @@ public class Monitor extends Peripheral {
 
     public void setStand(boolean stand) {
         hasStand = stand;
+    }
+
+    public String toString() {
+        return super.toString() + "\n" +
+               "Resolution: " + resolution + "\n" +
+               "Has Stand: " + (hasStand ? "Yes" : "No");
     }
 }

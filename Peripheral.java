@@ -3,11 +3,11 @@ public class Peripheral extends Component{
     protected double[] dimensions;
     protected String IOtype;
     
-    public Peripheral(double p, String b, boolean rgb, int pCon, String desc, double w, double[] d, String i) {
-        super(p, b, rgb, pCon, desc);
-        weight = w;
-        dimensions = d;
-        IOtype = i;
+    public Peripheral(double price, String brand, boolean rgb, int pCon, String name, String desc, double weight, double[] dimensions, String IOType) {
+        super(price, brand, rgb, pCon, name, desc);
+        this.weight = weight;
+        this.dimensions = dimensions;
+        IOtype = IOType;
         //Description="A peripheral is typically something you plug into your computer to interact with it.";
     }
 
@@ -35,6 +35,12 @@ public class Peripheral extends Component{
         IOtype = i;
     }
 
+    public String toString() {
+        return super.toString() + "\n" +
+               "Weight: " + weight + " kg\n" +
+               "Dimensions: " + dimensions[0] + " x " + dimensions[1] + " x " + dimensions[2] + " cm\n" +
+               "IO Type: " + IOtype;
+    }
     //public boolean freePort(Case c) {
         //String[] ports = c.getPorts();
         //for (String port : ports) {

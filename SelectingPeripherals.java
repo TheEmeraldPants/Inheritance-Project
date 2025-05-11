@@ -2,30 +2,31 @@ import java.util.Scanner;
 public class SelectingPeripherals {
     Scanner scanner = new Scanner(System.in);
     //initialize budget, mid-range, gaming, and high-end peripherals
-    Keyboard budgetKeyboard = new Keyboard(50, "Logitech", false, 5, "A budget keyboard with basic features.", 0.5, new double[]{40, 15, 5}, "USB", "Membrane", 100, false);
-    Keyboard midRangeKeyboard = new Keyboard(100, "Corsair", true, 8, "A mid-range keyboard with customizable RGB lighting.", 0.8, new double[]{45, 20, 5}, "USB", "Mechanical", 80, true);
-    Keyboard gamingKeyboard = new Keyboard(150, "Razer", true, 10, "A high-end gaming keyboard with RGB lighting.", 1.0, new double[]{45, 20, 5}, "USB", "Mechanical", 100, true);
-    Keyboard highEndKeyboard = new Keyboard(200, "SteelSeries", true, 12, "A high-end keyboard with customizable RGB lighting.", 1.2, new double[]{50, 25, 5}, "USB", "Mechanical", 100, true);
+    Keyboard budgetKeyboard = new Keyboard(12.99, "Logitech", false, 1, "K120", "Reliable and durable, equipped with a number pad with an easy-to-use design that works right out of the box.", 19.4, new double[]{0.5, 0.2, 0.1}, "USB", "Rubber Dome", 100, false);
+    Keyboard midRangeKeyboard = new Keyboard(34.99, "Logitech", false, 0, "K400 Plus Wireless Touch", "Quiet, easy-to-use keyboard with a built-in touchpad, plus all the hotkeys Windows® and Android™ users know and love.", 13.76, new double[]{5.51, 13.95, 0.93}, "Battery Operated", "Linear", 60, true);
+    Keyboard gamingKeyboard = new Keyboard(249.99, "Razer", true, 3, "Huntsman V3 Pro", "Low-profile mechanical gaming keyboard with customizable RGB lighting and programmable keys.", 1.5, new double[]{14.2, 5.4, 0.9}, "USB-C", "Mechanical", 80, true);
+    Keyboard highEndKeyboard = new Keyboard(249.99, "Corsair", true, 5, "K100 RGB", "High-end mechanical gaming keyboard with customizable RGB lighting and programmable keys.", 2.5, new double[]{17.5, 6.5, 1.5}, "USB-C", "Corsair OPX", 100, true);
 
-    Mouse budgetMouse = new Mouse(30, "Logitech", false, 3, "A budget mouse with basic features.", 0.2, new double[]{10, 5, 4}, "USB", 8000, 0);
-    Mouse midRangeMouse = new Mouse(60, "Corsair", true, 5, "A mid-range mouse with customizable RGB lighting.", 0.3, new double[]{12, 6, 4}, "USB", 16000, 3);
-    Mouse gamingMouse = new Mouse(100, "Razer", true, 7, "A high-end gaming mouse with RGB lighting.", 0.4, new double[]{12, 6, 4}, "USB", 20000, 5);
-    Mouse highEndMouse = new Mouse(150, "SteelSeries", true, 10, "A high-end mouse with customizable RGB lighting.", 0.5, new double[]{12, 6, 4}, "USB", 20000, 7);
+    Mouse budgetMouse = new Mouse(9.99, "Logitech", false, 1, "M100", "Basic wired mouse with a simple design and reliable performance.", 0.2, new double[]{4.5, 2.5, 1}, "USB", 100, 0);
+    Mouse midRangeMouse = new Mouse(29.99, "Logitech", false, 0, "M720 Triathlon", "Multi-device wireless mouse with customizable buttons and long battery life.", 0.1, new double[]{4.5, 2.5, 1}, "Bluetooth", 1600, 3);
+    Mouse gamingMouse = new Mouse(79.99, "Logitech", true, 2, "G502 HERO", "High-performance gaming mouse with customizable RGB lighting and programmable buttons.", 0.1, new double[]{4.5, 2.5, 1}, "USB", 16000, 11);
+    Mouse highEndMouse = new Mouse(149.99, "Razer", true, 3, "Viper Ultimate", "Wireless gaming mouse with customizable RGB lighting and ultra-lightweight design.", 0.1, new double[]{4.5, 2.5, 1}, "USB-C", 20000, 8);
 
-    Monitor budgetMonitor = new Monitor(150, "Acer", false, 20, "A budget monitor with basic features.", 3.0, new double[]{50, 30, 5}, "HDMI", "1080p", false);
-    Monitor midRangeMonitor = new Monitor(300, "Dell", true, 30, "A mid-range monitor with customizable RGB lighting.", 4.0, new double[]{55, 35, 5}, "HDMI", "1440p", true);
-    Monitor gamingMonitor = new Monitor(500, "Asus", true, 50, "A high-end gaming monitor with RGB lighting.", 5.0, new double[]{60, 40, 5}, "HDMI", "4K", true);
-    Monitor highEndMonitor = new Monitor(800, "Samsung", true, 70, "A high-end monitor with customizable RGB lighting.", 6.0, new double[]{65, 45, 5}, "HDMI", "8K", true);
+    Monitor budgetMonitor = new Monitor(99.99, "Acer", false, 0, "R240HY", "23.8-inch Full HD IPS monitor with slim bezels and wide viewing angles.", 3.5, new double[]{21.2, 20.5, 1.5}, "HDMI", "1080P", true);
+    Monitor midRangeMonitor = new Monitor(249.99, "Dell", false, 0, "UltraSharp U2415", "24-inch WUXGA IPS monitor with ultra-thin bezels and wide color coverage.", 3.5, new double[]{21.2, 20.5, 1.5}, "HDMI", "WUXGA", true);
+    Monitor gamingMonitor = new Monitor(499.99, "ASUS", true, 2, "ROG Swift PG259QN", "24.5-inch Full HD gaming monitor with 360Hz refresh rate and G-SYNC support.", 3.5, new double[]{21.2, 20.5, 1.5}, "HDMI", "1080P", true);
+    Monitor highEndMonitor = new Monitor(999.99, "LG", true, 5, "UltraGear 38GN950-B", "38-inch UltraWide QHD+ gaming monitor with 144Hz refresh rate and HDR support.", 3.5, new double[]{21.2, 20.5, 1.5}, "HDMI", "UltraWide QHD+", true);
 
-    Headset budgetHeadset = new Headset(50, "Logitech", false, 5, "A budget headset with basic features.", 0.5, new double[]{20, 15, 10}, "3.5mm", false, "V Shaped");
-    Headset midRangeHeadset = new Headset(100, "Corsair", true, 8, "A mid-range headset with customizable RGB lighting.", 0.8, new double[]{25, 20, 10}, "USB", false, "Balanced");
-    Headset gamingHeadset = new Headset(150, "Razer", true, 10, "A high-end gaming headset with RGB lighting.", 1.0, new double[]{25, 20, 10}, "USB", true, "Bass Boost");
-    Headset highEndHeadset = new Headset(200, "SteelSeries", true, 12, "A high-end headset with customizable RGB lighting.", 1.2, new double[]{30, 25, 10}, "USB", true, "Studio");
+    Headset budgetHeadset = new Headset(29.99, "Logitech", false, 0, "H390", "Wired headset with noise-canceling microphone and in-line volume control.", 0.5, new double[]{7.5, 6.5, 3}, "USB", true, "Balanced");
+    Headset midRangeHeadset = new Headset(79.99, "HyperX", false, 1, "Cloud II", "Comfortable wired gaming headset with virtual 7.1 surround sound.", 0.5, new double[]{7.5, 6.5, 3}, "USB", true, "Bass");
+    Headset gamingHeadset = new Headset(149.99, "SteelSeries", true, 2, "Arctis Pro Wireless", "High-end wireless gaming headset with dual-battery system and customizable RGB lighting.", 0.5, new double[]{7.5, 6.5, 3}, "USB-C", true, "Bass");
+    Headset highEndHeadset = new Headset(299.99, "Razer", true, 3, "Nari Ultimate", "Wireless gaming headset with haptic feedback and customizable RGB lighting.", 0.5, new double[]{7.5, 6.5, 3}, "USB-C", true, "Bass");
 
-    MousePad budgetMousepad = new MousePad(20, "Logitech", false, 2, "A budget mousepad with basic features.", 0.3, new double[]{30, 25, 0.1}, "USB", "Cloth");
-    MousePad midRangeMousepad = new MousePad(40, "Corsair", true, 4, "A mid-range mousepad with customizable RGB lighting.", 0.5, new double[]{35, 30, 0.1}, "USB", "Hard");
-    MousePad gamingMousepad = new MousePad(60, "Razer", true, 6, "A high-end gaming mousepad with RGB lighting.", 0.7, new double[]{40, 35, 0.1}, "USB", "Full Desk");
-    MousePad highEndMousepad = new MousePad(80, "SteelSeries", true, 8, "A high-end mousepad with customizable RGB lighting.", 0.9, new double[]{45, 40, 0.1}, "USB", "Ergonomic");
+    MousePad budgetMousepad = new MousePad(9.99, "SteelSeries", false, 0, "QcK", "Basic cloth mousepad with a non-slip rubber base.", 0.2, new double[]{12, 10, 0.1}, "USB", "Cloth");
+    MousePad midRangeMousepad = new MousePad(19.99, "Corsair", false, 0, "MM300", "Extended cloth mousepad with anti-fray stitching and non-slip rubber base.", 0.2, new double[]{12, 10, 0.1}, "USB", "Cloth");
+    MousePad gamingMousepad = new MousePad(39.99, "Razer", true, 1, "Firefly V2", "RGB mousepad with customizable lighting and durable surface.", 0.2, new double[]{12, 10, 0.1}, "USB-C", "Plastic");
+    MousePad highEndMousepad = new MousePad(79.99, "Corsair", true, 2, "MM800 RGB Polaris", "RGB mousepad with extreme custom lighting and pristine micro textured surface.", 0.2, new double[]{12, 10, 0.1}, "USB-C", "Micro Textured");
+
 
     //initialize selected peripherals
     Keyboard selectedKeyboard;
@@ -33,6 +34,9 @@ public class SelectingPeripherals {
     Monitor selectedMonitor;
     Headset selectedHeadset;
     MousePad selectedMousepad;
+
+    double totalPrice = 0;
+    int totalPowerConsumption = 0;
 
     public static void main(String[] args) {
         new SelectingPeripherals().suggestPeripherals();

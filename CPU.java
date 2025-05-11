@@ -1,5 +1,5 @@
 
-
+/*
 public class CPU extends Component {
     private String type;
     private int cores;
@@ -29,3 +29,5 @@ public class CPU extends Component {
 //         return motherboard.getCpuType().equals(type);
 //     }
 // }
+
+*/
